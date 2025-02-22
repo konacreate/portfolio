@@ -1,0 +1,42 @@
+@use "../../global" as *;
+
+//ヘッダー ========================
+.p-header {
+  position: fixed;
+  z-index: $z-header;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  background: #e7f482;
+}
+
+.p-header__logo {
+  font-size: rm(20);
+}
+.p-header__nav {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  column-gap: rm(60);
+  //spの場合非表示
+  @include mq(sm) {
+    display: none;
+  }
+}
+.p-header__list {
+  display: flex;
+  align-items: center;
+  column-gap: rm(32);
+  li a {
+    font-size: rm(20);
+  }
+}
+.p-header__button {
+  padding:rm(8) rm(26);
+  background: #fff;
+  border: 1px solid #fff;
+  color: #001A75;
+  font-size: rm(20);
+  transition: all 0.3s ease;
+}

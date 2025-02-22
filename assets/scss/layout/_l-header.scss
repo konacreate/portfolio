@@ -1,0 +1,12 @@
+@use "../global" as *;
+
+.l-header {
+  padding-block: rm(17);
+}
+
+.l-header__inner {
+  display: grid;
+  align-items: center;
+  grid-template-columns: rm(150) 1fr;
+  padding-inline: rm(20);
+}
