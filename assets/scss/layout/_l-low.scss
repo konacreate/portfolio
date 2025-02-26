@@ -1,0 +1,25 @@
+@use "../global" as *;
+
+.l-low__works {
+  padding-block: rm(30) rm(14);
+
+  @include mq(md) {
+    padding-block: rm(80);
+  }
+}
+
+.l-low__single {
+  padding-block: rm(42) 0;
+
+  @include mq(md) {
+    padding-block: rm(50) 0;
+  }
+}
+
+.l-low__404 {
+  padding-block: rm(42);
+
+  @include mq(md) {
+    padding-block: rm(50);
+  }
+}

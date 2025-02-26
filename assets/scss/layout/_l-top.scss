@@ -1,0 +1,25 @@
+@use "../global" as *;
+
+.l-top__works {
+  padding-block: rm(120) rm(70);
+
+  @include mq(md) {
+    padding-block: rm(115) rm(125);
+  }
+}
+
+.l-top__service {
+  padding-block: rm(58);
+
+  @include mq(md) {
+    padding-block: rm(101);
+  }
+}
+
+.l-top__about {
+  padding-block: rm(43);
+
+  @include mq(md) {
+    padding-block: rm(110);
+  }
+}

@@ -1,0 +1,45 @@
+@use "../../global" as *;
+
+.p-cta {
+  position: fixed;
+  right: rm(12);
+  bottom: rm(10);
+  width: rm(70);
+  z-index: 5;
+
+  @include mq(md) {
+    width: rm(120);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    background: url(../img/cta-x-hover.png) no-repeat center center / contain;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 6;
+    transition: opacity 0.3s ease;
+  }
+
+
+  img {
+    aspect-ratio: 1;
+    filter: drop-shadow(0 2.75px 2.75px rgba($accent-color, .2));
+
+    @include mq(md) {
+      filter: drop-shadow(0 4px 4px rgba($accent-color, .2));
+    }
+  }
+
+  @media(any-hover: hover) {
+    &:hover {
+      &::before {
+        opacity: 1;
+      }
+
+    }
+  }
+}

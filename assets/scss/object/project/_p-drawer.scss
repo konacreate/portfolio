@@ -3,88 +3,148 @@
 
 //アイコン ====================
 .p-drawer__icon {
-  position: fixed;
   z-index: $z-drawerIcon;
+  justify-self: end;
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
-
-  top: 17px;
-  right: 20px;
-  width: 24px;
-  height: 16px;
+  width: rm(26);
+  height: rm(4);
   @include mq(md) {
     display: none;
   }
 }
-.p-drawer__icon--bar {
-  width: 100%;
-  height: 1px;
-  background: #000;
+
+.p-drawer__icon--circle {
+  width: rm(4);
+  height: rm(4);
+  background: $color-main;
+  border-radius: 50%;
 }
 
 //メニューが開いている時 ========
-.p-drawer__icon.js-show {
-  .p-drawer__icon--bar:nth-of-type(1) {
-    rotate: 45deg;
-    translate: 0 7.5px;
-  }
-  .p-drawer__icon--bar:nth-of-type(2) {
-    display: none;
-  }
-  .p-drawer__icon--bar:nth-of-type(3) {
-    rotate: -45deg;
-    translate: 0 -7.5px;
-  }
-}
-
 //ドロワーメニュー
 .p-drawer {
   position: fixed;
   z-index: $z-drawer;
   overflow-y: scroll;
-  
-  top: 0;
-  right: 0;
-  width: 278px;
-  height: 100vh;
-  height: 100svh;
-  background: #b6e7f3;
+  border-radius: rm(20);
+  inset: 0;
+  width: vw-sp(200);
+  height: vw-sp(357);
+  max-height: calc(100vh - 12px * 2);
+  max-height: calc(100svh - 12px * 2);
+  margin: rm(12) rm(13)  auto auto;
+  background-color: $color-main;
+  box-shadow: 0px 4px 7px 0px rgba(70, 100, 100, 0.20);
 }
-.p-drawer__icon--bar {
-  transition: all 0.5s ease;
+
+.p-drawer__close {
+  position: fixed;
+  top: rm(16);
+  right: rm(14);
+  font-family: $ff-en;
+  @include font(16, 500, 19.2, );
+  width: rm(27);
+  height: rm(27);
+  background-color: $color-bg;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  margin-inline-start: auto;
 }
 
 //ドロワーの出現の動きを指定
 .p-drawer {
-  translate: 101%;
-  transition: translate 0.5s ease;
+  scale:  0;
+  opacity: 0;
+  visibility: hidden;
+  transform-origin: right top;
+  transition: scale 0.5s ease, opacity 0.3s ease;
 
   &.js-show {
-    translate: 0;
+    scale: 1;
+    opacity: 1;
+    visibility: visible;
   }
 }
+
+.p-drawer__overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 101;
+  background: rgba($accent-color, 0.8);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+.p-drawer.js-show+.p-drawer__overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
 .p-drawer__body {
   width: 100%;
   height: fit-content;
-
-  padding-block: 88px 40px;
-  padding-left: 34px;
+  padding: rm(46) rm(14) rm(16);
 }
+
+.p-drawer__home {
+  margin-inline: auto;
+  width: rm(158);
+  display: block;
+}
+
 .p-drawer__list {
   display: flex;
   flex-direction: column;
-  row-gap: 32px;
-  margin-bottom: 40px;
+  align-items: center;
+  row-gap: rm(26);
+  margin-block-start: rm(26);
+
   li a {
-    font-size: 20px;
-    font-weight: 400;
+    font-size: rm(16);
+    font-weight: 500;
+    line-height: 1.5;
+    display: grid;
+    justify-items: center;
+    width: fit-content;
+
+    &::before {
+      font-size: rm(14);
+    }
+
+   &.--works {
+    &::before {
+      content: 'Works';
+    }
+   }
+
+   &.--about {
+    &::before {
+      content: 'About';
+    }
+   }
+
+   &.--blog {
+    &::before {
+      content: 'Blog';
+    }
+   }
   }
 }
 .p-drawer__button {
-  display: inline-block;
-  padding: 6px 30px;
-  background: #fff;
-  font-size: 20px;
-  font-weight: 400;
+  display: block;
+  width: fit-content;
+  @include font(16, 500, 25.6, 0.272);
+  color: $color-main;
+  padding: rm(4) rm(28.5);
+  margin-block-start: rm(26);
+  margin-inline: auto;
+  background-color: $accent-color;
+  border-radius: 100vmax;
 }

@@ -1,27 +1,8 @@
-/**
-* 最大幅に基づいてviewport設定を切り替える関数。
-* @function
-* @param {number} maxWidth - viewportを固定する際の最大幅
-*/
-const switchViewport = (maxWidth) => {
-  const viewport = document.querySelector('meta[name="viewport"]');
-  const value =
-    window.outerWidth > maxWidth
-      ? "width=device-width,initial-scale=1"
-      : `width=${maxWidth}`;
-  if (viewport.getAttribute("content") !== value) {
-    viewport.setAttribute("content", value);
-  }
-};
-addEventListener("resize", () => switchViewport(375));
-switchViewport(375);
-
-
-
 // ハンバーガーメニュー
 document.addEventListener("DOMContentLoaded", () => {
   //定義
   const drawerIcon = document.querySelector('.p-drawer__icon');
+  const drawerClose = document.querySelector('.p-drawer__close');
   const drawer = document.querySelector('.p-drawer');
   const drawerNavItem = document.querySelectorAll('.p-drawer__body a[href^="#"]');
   const headerHeight = document.querySelector('.p-header').offsetHeight;
@@ -33,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const openMenu = () => {
     if (!drawer.classList.contains("js-show")) {
       drawer.classList.add("js-show");
-      drawerIcon.classList.add("js-show");
     }
   }
 
@@ -41,19 +21,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeMenu = () => {
     if (drawer.classList.contains("js-show")) {
       drawer.classList.remove("js-show");
-      drawerIcon.classList.remove("js-show");
       isMenuOpen = false;
     }
   }
-
-  //メニューの開閉動作
-  const toggleMenu = () => {
-    if (!drawer.classList.contains("js-show")) {
-      openMenu();
-    } else {
-      closeMenu();
-    }
-  };
 
   //リサイズ処理
   const handleResize = () => {
@@ -88,7 +58,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   //ヘッダーアイコン クリック時
-  drawerIcon.addEventListener("click", toggleMenu);
+  drawerIcon.addEventListener("click", openMenu);
+  drawerClose.addEventListener("click", closeMenu);
   //画面幅リサイズ時
   window.addEventListener("resize", handleResize);
   //メニュー外クリック時
@@ -102,4 +73,36 @@ document.addEventListener("DOMContentLoaded", () => {
       linkScroll(targetItem);
     });
   });
+});
+
+// fvSwiper
+const fvSwiper = new Swiper('#js-fv-swiper', {
+  // Optional parameters
+  loop: true,
+  effect: "fade",
+  fadeEffect: {
+    crossFade: true
+  },
+  speed: 1000,
+  autoplay: {
+    delay: 3000,
+},
+});
+
+// worksSwiper
+const worksSwiper = new Swiper('#js-works-swiper', {
+  // Optional parameters
+  spaceBetween: 7,
+  slidesPerView: "auto",
+
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.p-works-swiper__next',
+    prevEl: '.p-works-swiper__prev',
+  },
 });

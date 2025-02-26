@@ -1,0 +1,162 @@
+@use "../../global" as *;
+
+.p-404 {
+
+}
+
+
+.p-404__img {
+  position: relative;
+  width: min(vw-sp(351), 600px);
+  margin-inline: auto;
+  display: block;
+
+  @include mq(md) {
+    width: rm(900);
+  }
+
+  img {
+    aspect-ratio: 351 / 255;
+    object-fit: cover;
+
+    @include mq(md) {
+      aspect-ratio: 727 / 528;
+    }
+  }
+
+}
+
+.p-404__wrapper {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: min(vw-sp(290), 480px);
+  aspect-ratio: 290 / 192;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+
+
+  @include mq(md) {
+    width: rm(800);
+    padding-inline: rm(40);
+  }
+
+
+  &::before ,
+  &::after {
+    content: '';
+    position: absolute;
+
+  }
+
+  &::before {
+    background: url(../img/item1.svg) no-repeat center center / cover;
+    width: min(vw-sp(40), 60px);
+    aspect-ratio: 1;
+    top: vw-sp(8);
+    left: vw-sp(30);
+    z-index: 2;
+
+    @include mq(md) {
+      width: rm(90);
+      top: rm(30);
+      left: rm(80);
+    }
+  }
+
+  &::after {
+    background: url(../img/item1.svg) no-repeat center center / cover;
+    width: min(vw-sp(30), 40px);
+    aspect-ratio: 1;
+    right: vw-sp(10);
+    bottom: 0;
+
+    @include mq(md) {
+      width: rm(60);
+      right: rm(100);
+      bottom: rm(50);
+    }
+  }
+}
+
+.p-404__heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: vw-sp(12);
+  
+  @include mq(md) {
+    row-gap: rm(20);
+  }
+}
+
+.p-404__heading--sub {
+  font-size: min(vw-sp(14), 16px);
+  font-family: $ff-en;
+
+  @include mq(md) {
+    font-size: rm(18);
+  }
+}
+
+.p-404__heading--main {
+  font-size: min(vw-sp(76), 100px);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  font-family: $ff-en;
+
+  @include mq(md) {
+    font-size: rm(120);
+  }
+}
+
+.p-404__text {
+  font-size: rm(14);
+  font-weight: 500;
+  line-height: 1.5;
+  margin-block-start: rm(24);
+
+  @include mq(md) {
+    font-size: rm(16);
+  }
+
+  &.--lg {
+    font-size: rm(18);
+    font-weight: 700;
+    text-align: center;
+    margin-block-start: rm(14);
+
+    @include mq(md) {
+      font-size: rm(20);
+    }
+  }
+}
+
+.p-404__button {
+  margin-block-start: rm(32);
+  margin-inline: auto;
+  width: rm(218);
+  position: relative;
+
+  @include mq(md) {
+    width: rm(230);
+    margin-block-start: rm(64);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    background: url(../img/item3.svg) no-repeat center center / contain;
+    width: rm(36);
+    aspect-ratio: 1;
+    top: rm(-10);
+    left: rm(-4);
+    pointer-events: none;
+  }
+
+}
+
+

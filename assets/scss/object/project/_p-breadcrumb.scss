@@ -1,0 +1,49 @@
+@use "../../global" as *;
+
+.p-breadcrumb {
+  padding-block: rm(14);
+  background-color: $yellow;
+
+  @include mq(md) {
+    padding-block: rm(22);
+  }
+}
+
+.p-breadcrumb__inner {
+  margin-inline: rm(7);
+  display: flex;
+  column-gap: rm(17);
+  overflow: hidden;
+
+
+  @include mq(md) {
+    padding-inline: rm(59);
+    max-width: calc(1440px - 59px * 2);
+    margin-inline: auto;
+  }
+  
+  span {
+    display: flex;
+    column-gap: rm(17);
+    @include font(14, 500, 21, );
+      white-space: nowrap;
+
+    &:not(:first-child) {
+      &::before {
+        content: '＞';
+      }
+    }
+    
+  }
+
+  a {
+    transition: opacity 0.3s ease;
+
+    @media(any-hover: hover) {
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+
+}

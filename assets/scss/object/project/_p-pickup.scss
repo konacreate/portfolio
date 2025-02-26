@@ -1,0 +1,45 @@
+@use "../../global" as *;
+
+.p-pickup {
+  padding-block: rm(79);
+  background-color: $yellow;
+
+  @include mq(md) {
+    padding-block: rm(70);
+  }
+}
+
+.p-pickup__heading {
+  font-family: $ff-en;
+  text-align: center;
+  @include font(20, 500, 30, 1);
+
+  @include mq(md) {
+    font-size: rm(24);
+  }
+}
+
+.p-pickup__cards {
+  margin-block-start: rm(35);
+  display: grid;
+  row-gap: rm(20);
+  justify-items: center;
+
+  @include mq(md) {
+    margin-block-start: rm(34);
+    row-gap: 0;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: rm(19);
+  }
+}
+
+.p-pickup__button {
+  margin-block-start: rm(35);
+  margin-inline: auto;
+  width: rm(236);
+
+  @include mq(md) {
+    margin-block-start: rm(34);
+  }
+}
+

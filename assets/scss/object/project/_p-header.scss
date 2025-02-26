@@ -1,42 +1,126 @@
 @use "../../global" as *;
 
 //ヘッダー ========================
+.p-header__wrapper {
+  height: rm(67);
+  background-color: $color-main;
+
+  @include mq(md) {
+    height: min(vw(104), 104px);
+  }
+
+  &.--bg {
+    background-color: $color-bg;
+  }
+}
+
 .p-header {
   position: fixed;
   z-index: $z-header;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
-  background: #e7f482;
+  top: 11px;
+  left: 50%;
+  translate: -50%;
+  width: calc(100% - 12px * 2);
+  height: rm(45);
+  background: #80BCBD;
+  border-radius: 100vmax;
+
+  @include mq(md) {
+    top: min(vw(19), 19px);
+    width: min(vw(1220), 1220px);
+    height: min(vw(66), 66px);
+  }
 }
 
 .p-header__logo {
-  font-size: rm(20);
+  a {
+    color: $color-main;
+    font-size: rm(16);
+    font-family: $ff-en;
+    font-weight: 800;
+    line-height: 1.2;
+    transition: opacity 0.3s ease;
+
+    @include mq(md) {
+      font-size: rm(24);
+    }
+
+    @media(any-hover: hover) {
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
 }
 .p-header__nav {
-  display: flex;
-  align-items: center;
-  justify-content: end;
-  column-gap: rm(60);
-  //spの場合非表示
-  @include mq(sm) {
-    display: none;
+  display: none;
+
+  @include mq(md) {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    column-gap: rm(60);
   }
 }
 .p-header__list {
   display: flex;
   align-items: center;
-  column-gap: rm(32);
+  column-gap: rm(60);
   li a {
-    font-size: rm(20);
+    font-size: rm(18);
+    font-weight: 500;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $color-main;
+    transition: opacity 0.3s ease;
+
+    &::before {
+      font-size: rm(14);
+      font-family: $ff-en;
+    }
+
+    &.--works {
+      &::before {
+        content: 'Works';
+      }
+    }
+
+    &.--about {
+      &::before {
+        content: 'About';
+      }
+    }
+
+    &.--blog {
+      &::before {
+        content: 'Blog';
+      }
+    }
+
+    @media(any-hover: hover) {
+      &:hover {
+        opacity: 0.5;
+      }
+    }
   }
-}
+  }
+
 .p-header__button {
-  padding:rm(8) rm(26);
-  background: #fff;
-  border: 1px solid #fff;
-  color: #001A75;
-  font-size: rm(20);
-  transition: all 0.3s ease;
+  font-size: rm(16);
+  font-weight: 700;
+  line-height: 1.5;
+  width: rm(170);
+  padding: rm(8) rm(21);
+  border-radius: 100vmax;
+  background-color: $yellow;
+  transition: color 0.3s ease, background-color 0.3s ease;
+
+  @media(any-hover: hover) {
+    &:hover {
+      color: $yellow;
+      background-color: $accent-color;
+    }
+  }
 }

@@ -1,0 +1,9 @@
+@use "../global" as *;
+
+.l-fv {
+  padding-block: rm(30) rm(20);
+
+  @include mq(md) {
+    padding-block: rm(112.5) rm(59.5);
+  }
+}

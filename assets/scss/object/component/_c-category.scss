@@ -1,0 +1,11 @@
+@use "../../global" as *;
+
+.c-category {
+  display: inline-block;
+  @include font(14, 500, 21, );
+  height: rm(26);
+  padding: rm(2.5) rm(8);
+  border-radius: rm(10);
+  display: grid;
+  place-items: center;
+}

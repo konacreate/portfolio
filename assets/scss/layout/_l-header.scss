@@ -1,12 +1,18 @@
 @use "../global" as *;
 
 .l-header {
-  padding-block: rm(17);
+
 }
 
 .l-header__inner {
   display: grid;
   align-items: center;
-  grid-template-columns: rm(150) 1fr;
-  padding-inline: rm(20);
+  grid-template-columns: rm(131) 1fr;
+  padding-inline: rm(19) rm(28);
+  height: 100%;
+
+  @include mq(md) {
+    grid-template-columns: rm(200) 1fr;
+    padding-inline: min(vw(60), 60px);
+  }
 }

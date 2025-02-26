@@ -10,10 +10,11 @@ $breakpoints: (
   "sm": "screen and (max-width: #{$breakpoint - 1px})",
 	"sm-lg": "(min-width: #{$sp-inner-sum * 1px})",
   "md": "(min-width: #{$breakpoint * 1px})",
-  "lg": "(min-width: #{$pc-inner-sum * 1px})"
+  "lg": "(min-width: #{$lg-breakpoint * 1px})",
+  "xl": "(min-width: #{$pc-inner-sum * 1px})"
 ) !default;
 
-@mixin mq($breakpoint: sp) {
+@mixin mq($breakpoint: md) {
   @media #{map.get($breakpoints, $breakpoint)} {
     @content;
   }
@@ -26,9 +27,9 @@ $breakpoints: (
 //Figma の時は、こちら ===============
 @mixin font($size: null, $weight: null, $height: null, $spacing: null) {
   @if $size {
-		font-size: max(calc($size / 16 * 1rem), calc($size * 0.8px));
-		@include mq(sp) {
-			font-size: calc($size / 16 * 1rem);
+    font-size: calc($size / 16 * 1rem);
+		@include mq(md) {
+			font-size: max(calc($size / 16 * 1rem), calc($size * 0.8px));
 		}
   }
   @if $weight {

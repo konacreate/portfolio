@@ -1,1 +1,247 @@
 @use "../../global" as *;
+
+.p-footer__top {
+  padding-block: rm(75) vw-sp(238);
+  background: url(../img/sp/footer-bg.png) no-repeat center bottom / cover;
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  @include mq(md) {
+    padding-block: rm(105) vw(101);
+    background-image: url(../img/footer-bg.png);
+  }
+}
+
+.p-footer__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: rm(44);
+
+  @include mq(md) {
+    flex-direction: row;
+    row-gap: 0;
+    column-gap: rm(150);
+    align-items: start;
+  }
+}
+
+.p-footer__left {
+@include mq(md) {
+  flex-shrink: 0;
+}
+}
+
+.p-footer__button--contact {
+  color: $accent-color;
+  @include font(18, 700, 28.8, 0.306);
+  padding: rm(16) rm(35);
+  background-color: $green;
+  border-radius: 100vmax;
+  transition: color 0.3s ease, background-color 0.3s ease;
+
+  @include mq(md) {
+    font-size: rm(20);
+  }
+
+  @media(any-hover: hover) {
+    &:hover {
+      background-color: $accent-color;
+      color: $color-main;
+    }
+  }
+}
+
+.p-footer__nav {
+  margin-block-start: rm(35);
+
+  @include mq(md) {
+    margin-block-start: rm(45);
+  }
+}
+
+.p-footer__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: rm(26);
+
+  @include mq(md) {
+    flex-direction: row;
+    row-gap: 0;
+    column-gap: rm(32);
+  }
+}
+
+.p-footer__item {
+
+  a {
+    @include font(16, 500, 24, );
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: opacity 0.3s ease;
+  
+    &.--works {
+      &::before {
+        content: "Works";
+      }
+    }
+  
+    &.--about {
+      &::before {
+        content: "About";
+      }
+    }
+  
+    &.--blog {
+      &::before {
+        content: "Blog";
+      }
+    }
+
+    @media(any-hover: hover) {
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
+.p-footer__logo {
+  margin-block-start: rm(35);
+  font-family: $ff-en;
+  @include font(24, 800, 28.8, );
+  text-align: center;
+
+  @include mq(md) {
+    font-size: rm(48);
+  }
+}
+
+.p-footer__right {
+  width: 100%;
+}
+
+.p-footer__x-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: rm(18);
+
+  @include mq(md) {
+    flex-direction: row;
+    row-gap: 0;
+    align-items: end;
+    column-gap: rm(18);
+  }
+}
+
+.p-footer__button--x {
+  @include font(18, 500, 28.8, 0.306);
+  color: $color-main;
+  padding: rm(16) rm(35);
+  border-radius: 100vmax;
+  background-color: #333;
+  transition: color 0.3s ease, background-color 0.3s ease;
+
+  @include mq(md) {
+    font-size: rm(20);
+  }
+
+  @media(any-hover: hover) {
+    &:hover {
+      background-color: $color-main;
+      color: #333333;
+    }
+  }
+}
+
+.p-footer__message {
+  @include font(16, 500, 25.6, 0.272);
+  text-align: center;
+
+  @include mq(md) {
+    text-align: start;
+    font-size: rm(16);
+  }
+}
+
+.p-footer__x {
+  width: 100%;
+  height: vw-sp(295);
+  overflow: hidden;
+  overflow-y: scroll;
+  margin-block-start: rm(16);
+  border-radius: rm(8);
+
+  @include mq(md) {
+    margin-block-start: rm(25);
+    height: vw(295);
+    width: rm(550);
+  }
+}
+
+.p-footer__deco1,
+.p-footer__deco2,
+.p-footer__deco3 {
+  position: absolute;
+}
+
+.p-footer__deco1 {
+  width: vw-sp(60.4);
+  height: vw-sp(43);
+  left: vw-sp(37);
+  bottom: vw-sp(120);
+
+
+  @include mq(md) {
+    width: vw(61.8);
+    height: vw(44);
+    left: auto;
+    right: calc(50% + vw(500));
+    bottom: vw(110);
+  }
+}
+
+.p-footer__deco2 {
+  width: vw-sp(63.6);
+  height: vw-sp(48);
+  left: vw-sp(248);
+  bottom: vw-sp(72);
+
+  @include mq(md) {
+    width: vw(60.9);
+    height: vw(46);
+    bottom: vw(54);
+    left: vw(481);
+  }
+}
+
+.p-footer__deco3 {
+  width: vw-sp(43.8);
+  height: vw-sp(33);
+  left: vw-sp(320);
+  bottom: vw-sp(59);
+
+  @include mq(md) {
+    width: vw(43.7);
+    height: vw(33);
+    left: vw(545);
+    bottom: vw(34);
+  }
+}
+
+.p-footer__bottom {
+  padding-block: rm(14);
+  background-color: $accent-color;
+  text-align: center;
+
+  small {
+    font-family: $ff-sub;
+    color: $color-main;
+    @include font(14, 400, 22.4, 0.238);
+  }
+}
+

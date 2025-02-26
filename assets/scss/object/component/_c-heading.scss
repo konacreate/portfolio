@@ -1,0 +1,38 @@
+@use "../../global" as *;
+
+.c-heading {
+  @include font(24, 500, 28.8, 1.2);
+  font-family: $ff-en;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include mq(md) {
+    @include font(36, 500, 43.2, 1.8);
+  }
+
+  &::before {
+    @include font(16, 500, 24, );
+  }
+
+  &.--works {
+    &::before {
+      content: "Works";
+    }
+  }
+
+  &.--service {
+    &::before {
+      content: "Service";
+    }
+  }
+
+  &.--about {
+    @include mq(md) {
+      align-items: start;
+    }
+    &::before {
+      content: 'About';
+    }
+  }
+}

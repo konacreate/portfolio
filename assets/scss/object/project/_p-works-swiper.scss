@@ -1,0 +1,83 @@
+@use "../../global" as *;
+
+.p-works-swiper {
+  overflow: visible;
+
+  &.swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 0;
+  }
+
+  &.swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
+    bottom: rm(23);
+  }
+}
+
+.swiper-wrapper {
+
+}
+
+.p-works-swiper__wrapper {
+
+}
+
+.p-works-swiper__slide {
+  height: auto;
+  width: rm(377);
+}
+
+.p-works-swiper__pagination {
+  display: flex;
+  justify-content: center;
+  column-gap: rm(9);
+
+
+  .swiper-pagination-bullet {
+    background: $thin-green;
+    opacity: 1;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: $accent-color;
+  }
+}
+
+.p-works-swiper__icon {
+  display: flex;
+  column-gap: rm(19);
+  margin: rm(49) rm(52) 0 auto;
+  width: fit-content;
+}
+
+.p-works-swiper__prev,
+.p-works-swiper__next  {
+  position: static;
+  width: rm(56);
+  height: rm(56);
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid $accent-color;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+
+  &::after {
+    content: '';
+  }
+
+  svg {
+    width: rm(24);
+    height: rm(24);
+    fill: $accent-color;
+    transition: fill 0.3s ease;
+  }
+
+  @media(any-hover: hover) {
+    &:hover {
+      background-color: $accent-color;
+      svg {
+        fill: $color-main;
+      }
+    }
+  }
+}

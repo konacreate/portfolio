@@ -1,0 +1,115 @@
+@use "../../global" as *;
+
+.p-fv {
+
+}
+
+.p-fv__inner {
+  padding-inline: rm(10) rm(14);
+  margin-inline: auto;
+  width: min(calc(540px + rm(10) + rm(14)), 100%);
+
+  @include mq(md) {
+    width: min(calc(1169px + rm(75) + rm(10)), 100%);
+  }
+}
+
+.p-fv__wrapper {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  row-gap: rm(47);
+
+  @include mq(md) {
+    flex-direction: row;
+    row-gap: 0;
+    justify-content: center;
+  }
+}
+
+.p-fv__text-wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: rm(15);
+
+  @include mq(md) {
+    row-gap: rm(24);
+  }
+}
+
+.p-fv__title {
+  font-family: $ff-en;
+  @include font(36, 800, 43.2, );
+  font-size: clamp(2.25rem, 1rem + 5.33vw, 3rem);
+
+  @include mq(md) {
+    font-size: rm(48);
+  }
+}
+
+.p-fv__text {
+  @include font(16, 400, 24, 0.272);
+  font-size: clamp(1rem, 0.792rem + 0.89vw, 1.125rem);
+
+  @include mq(md) {
+    font-size: rm(18);
+  }
+}
+
+.p-fv__img {
+  display: block;
+  position: relative;
+  flex-shrink: 0;
+
+  @include mq(md) {
+    width: calc(727 / 1169 * 100%);
+  }
+}
+
+.p-fv__slider {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: calc(261 / 351 * 100%);
+  border-radius: rm(10);
+
+  @include mq(md) {
+    width: calc(528 / 727 * 100%);
+    border-radius: rm(20);
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: 2;
+    width: calc(50 / 261 * 100%);
+  }
+
+  &::before {
+    background: url(../img/sp/fv-left.svg) no-repeat center center / contain;
+    top: calc(-5 / 168 * 100%);
+    left: calc(-13 / 261 * 100%);
+    height: calc(20 / 168 * 100%);
+    rotate: 143deg;
+
+    @include mq(md) {
+      width: calc(100 / 516 * 100%);
+      height: calc(50 / 338 * 100%);
+    }
+  }
+
+  &::after {
+    background: url(../img/sp/fv-left.svg) no-repeat center center / cover;
+    bottom: calc(-5 / 168 * 100%);
+    right: calc(-13 / 261 * 100%);
+    height: calc(25 / 168 * 100%);
+    rotate: -23deg;
+
+    @include mq(md) {
+      width: calc(92 / 516 * 100%);
+      height: calc(50 / 338 * 100%);
+    }
+  }
+}

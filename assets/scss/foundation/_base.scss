@@ -20,6 +20,10 @@ body {
   font-family: $ff;
 }
 
+body:has(.p-drawer.js-show) {
+  overflow: hidden;
+}
+
 a {
   text-decoration: none;
   transition: 0.3s;
@@ -52,6 +56,12 @@ button {
   background: transparent;
   background: none;
   border: none;
+
+  @media(any-hover: hover) {
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }
 
 input,
