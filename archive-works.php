@@ -52,11 +52,15 @@
                 </figure>
                 <div class="p-works__body">
                   <h2 class="p-works__title"><?php the_title(); ?></h2>
-                  <?php if (get_the_terms(get_the_ID(), 'genre')) : ?>
+                  <?php
+                      $terms = get_the_terms(get_the_ID(), 'genre');
+                    if ($terms) : ?>
                     <ul class="p-works__tag-list">
-                      <li class="c-category"><?php echo esc_html(get_the_terms(get_the_ID(), 'genre')[0]->name); ?></li>
+                      <?php foreach($terms as $term) : ?>
+                      <li class="c-category"><?php echo esc_html($term->name); ?></li>
+                      <?php endforeach; ?>
                     </ul>
-                  <?php endif; ?>
+                    <?php endif; ?>
                 </div>
               </a>
             </li>

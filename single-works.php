@@ -40,61 +40,64 @@
         </ul>
       </article>
     </div>
-    <div class="p-pickup">
-      <div class="l-inner">
-        <h3 class="p-pickup__heading">その他の制作実績</h3>
-        <ul class="p-pickup__cards">
-        <li class="p-works__card">
-            <a href="" class="p-works__card-link --white">
-              <figure class="p-works__img">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/works-sakata.png" alt="">
-              </figure>
-              <div class="p-works__body">
-                <h3 class="p-works__title">表参道カフェ風LPコーディングでま濃くてす</h3>
-                <ul class="p-works__tag-list">
-                  <li class="c-category">コーディング</li>
-                  <li class="c-category">WordPress</li>
-                  <li class="c-category">架空サイト</li>
-                </ul>
-              </div>
-            </a>
-          </li>
-          <li class="p-works__card">
-            <a href="" class="p-works__card-link --white">
-              <figure class="p-works__img">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/works-sakata.png" alt="">
-              </figure>
-              <div class="p-works__body">
-                <h3 class="p-works__title">表参道カフェ風LP</h3>
-                <ul class="p-works__tag-list">
-                  <li class="c-category">コーディング</li>
-                  <li class="c-category">WordPress</li>
-                  <li class="c-category">架空サイト</li>
-                </ul>
-              </div>
-            </a>
-          </li>
-          <li class="p-works__card">
-            <a href="" class="p-works__card-link --white">
-              <figure class="p-works__img">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/works-sakata.png" alt="">
-              </figure>
-              <div class="p-works__body">
-                <h3 class="p-works__title">表参道カフェ風LP</h3>
-                <ul class="p-works__tag-list">
-                  <li class="c-category">コーディング</li>
-                  <li class="c-category">LP</li>
-                  <li class="c-category">架空サイト</li>
-                </ul>
-              </div>
-            </a>
-          </li>
-        </ul>
-        <div class="p-pickup__button">
-          <a href="" class="c-button">制作実績一覧へ戻る</a>
+    <?php
+    $term_var = get_the_terms($post->ID, 'genre');
+    $related_query = new WP_Query(
+      array(
+        'post_type' => 'works',
+        'posts_per_page' => 3,
+        'post__not_in' => array($post->ID),
+        'tax_query' => array(
+          array(
+            'taxonomy' => 'genre',
+            'field' => 'slug',
+            'terms' => $term_var[0]->slug,
+          )
+        )
+      )
+    );
+    ?>
+    <?php if ($related_query->have_posts()) : ?>
+      <div class="p-pickup">
+        <div class="l-inner">
+          <h3 class="p-pickup__heading">その他の制作実績</h3>
+          <ul class="p-pickup__cards">
+            <?php while ($related_query->have_posts()) : ?>
+              <?php $related_query->the_post(); ?>
+              <li class="p-works__card">
+                <a href="<?php the_permalink(); ?>" class="p-works__card-link --white">
+                  <figure class="p-works__img">
+                    <?php
+                    if (has_post_thumbnail()) {
+                      the_post_thumbnail('my_thumbnail');
+                    } else {
+                      echo '<img src="' .  esc_url(get_template_directory_uri()) . '/assets/img/noimg.png" alt="画像なし">';
+                    }
+                    ?>
+                  </figure>
+                  <div class="p-works__body">
+                    <h3 class="p-works__title"><?php the_title(); ?></h3>
+                    <?php
+                      $terms = get_the_terms(get_the_ID(), 'genre');
+                    if ($terms) : ?>
+                    <ul class="p-works__tag-list">
+                      <?php foreach($terms as $term) : ?>
+                      <li class="c-category"><?php echo esc_html($term->name); ?></li>
+                      <?php endforeach; ?>
+                    </ul>
+                    <?php endif; ?>
+                  </div>
+                </a>
+              </li>
+            <?php endwhile; ?>
+          </ul>
+          <div class="p-pickup__button">
+            <a href="<?php echo home_url('/works'); ?>" class="c-button">制作実績一覧へ戻る</a>
+          </div>
         </div>
       </div>
-    </div>
+    <?php endif; ?>
+    <?php wp_reset_postdata(); ?>
   </section>
 
 </div>
