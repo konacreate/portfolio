@@ -9,17 +9,17 @@
 }
 
 .l-top__service {
-  padding-block: rm(58);
+  padding-block: rm(62);
 
   @include mq(md) {
-    padding-block: rm(101);
+    padding-block: rm(118) rm(101);
   }
 }
 
 .l-top__about {
-  padding-block: rm(43);
+  padding-block: rm(64) rm(43);
 
   @include mq(md) {
-    padding-block: rm(110);
+    padding-block: rm(150) rm(110);
   }
 }

@@ -8,7 +8,7 @@ $ff-sub: "Noto Sans JP", serif;
 //===========================================
 //   レイアウト (単位は不要)
 //===========================================
-$pc-inner: 1040;  // pc版inner幅 
+$pc-inner: 1100;  // pc版inner幅 
 $pc-sidePadding: 40; //pc版サイドのpadding
 $pc-inner-sum: calc($pc-inner + $pc-sidePadding * 2); 
 $pc-narrow-inner: 962; //狭いinner幅

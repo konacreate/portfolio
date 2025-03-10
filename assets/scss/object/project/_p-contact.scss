@@ -1,0 +1,519 @@
+@use "../../global" as *;
+
+.p-contact {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+  }
+
+  &::before {
+    width: rm(49);
+    aspect-ratio: 49 / 80;
+    top: rm(14);
+    left: rm(12);
+    background: url(../img/sp/contact-item1.png) no-repeat center center / contain;
+  
+    @include mq(md) {
+      width: min(vw(103), 103);
+      aspect-ratio: 103 / 133;
+      top: min(vw(70), 70px);
+      left: min(vw(43), 43px);
+      background-image: url(../img/contact-item1.png);
+    }
+  }
+
+  &::after {
+    width: rm(85);
+    aspect-ratio: 85 / 92;
+    right: rm(12);
+    bottom: rm(9);
+    background: url(../img/sp/contact-item2.png) no-repeat center center / contain;
+  
+    @include mq(md) {
+      width: min(vw(118), 118px);
+      aspect-ratio: 118 / 171;
+      right: min(vw(47), 47px);
+      bottom: min(vw(57), 57px);
+      background-image: url(../img/contact-item2.png);
+    }
+  }
+}
+
+.p-contact__inner {
+  padding-inline: rm(37) rm(38);
+}
+
+.p-contact__text {
+  font-size: rm(16);
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.017em;
+  margin-block-start: rm(20);
+
+  @include mq(md) {
+    font-size: rm(18);
+    margin-block-start: rm(15);
+    text-align: center;
+  }
+}
+
+.p-contact__form {
+  margin-block-start: rm(24);
+
+  @include mq(md) {
+    width: rm(768);
+    margin-block-start: rm(40);
+    margin-inline: auto;
+  }
+
+
+  &.wpcf7-form.invalid .wpcf7-response-output {
+    border:  none;
+    font-size: rm(16);
+    font-weight: 500;
+    line-height: 1.5;
+    color: #E95858;
+    border-radius: rm(10);
+    background: rgba(191, 21, 21, 0.20);
+    padding: rm(15) rm(10);
+  }
+}
+
+.p-contact__wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: rm(39);
+
+  @include mq(md) {
+    row-gap: rm(28);
+  }
+}
+
+.p-contact__row {
+  display: flex;
+  flex-direction: column;
+  row-gap: rm(7);
+
+  &.--checkbox {
+    margin-block: rm(5);
+
+    @include mq(md) {
+      margin-block: rm(8) rm(14);
+    }
+  }
+
+  .wpcf7-form-control-wrap {
+    width: 100%;
+
+    .p-contact__input-error {
+      border-color: #E95858;
+    }
+  }
+}
+
+.p-contact__head {
+  font-size: rm(18);
+  font-weight: 500;
+  line-height: 1.5;
+
+  span.--must {
+    position: relative;
+    display: inline-block;
+    &::after {
+      content: '必須';
+      position: absolute;
+      top: rm(1);
+      left: calc(100% + rm(10));
+      font-size: rm(14);
+      background-color: #E95858;
+      padding: rm(1.5) rm(14);
+      border-radius: rm(5);
+      color: $color-main;
+      white-space: nowrap;
+
+      @include mq(md) {
+        left: calc(100% + rm(10));
+      }
+    }
+  }
+
+  span.--optional {
+    position: relative;
+    display: inline-block;
+    &::after {
+      content: '任意';
+      position: absolute;
+      left: calc(100% + rm(8));
+      top: rm(2);
+      font-size: rm(14);
+      background-color: #333;
+      padding: rm(1.5) rm(14);
+      border-radius: rm(5);
+      color: $color-main;
+      white-space: nowrap;
+    }
+  }
+}
+
+
+.p-contact__head:has(.custom-error) {
+  display: flex;
+  column-gap: rm(72);
+  align-items: center;
+}
+
+.p-contact__data {
+  .wpcf7-not-valid-tip {
+    display: none;
+  }
+}
+
+
+// ===================================
+// 全体設定
+// ===================================
+input[type=text],
+input[type=email],
+select,
+textarea {
+  border-radius: rm(10);
+  width: 100%;
+  padding: rm(12);
+  background-color: #F9F9F9;
+  border: 1px solid $accent-color;
+  color: #333;
+  font-size: rm(16);
+  font-weight: 500;
+  line-height: 1.5;
+
+  &::placeholder {
+    color: #D9D9D9;
+  }
+
+
+}
+
+//テキストエリア
+textarea {
+  resize: vertical;
+  height: rm(182);
+}
+
+// ===================================
+// チェックボックス
+// ===================================
+//デフォルトのものを消す
+input[type=checkbox] {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+
+  &:focus-visible {
+    + span::before {
+      outline: 2px solid $green;
+    }
+  }
+}
+//チェックボックスカスタマイズ ====================
+//チェックされた時の挙動
+input[type=checkbox]:checked + .wpcf7-list-item-label {
+  &::after {
+    opacity: 1;
+  }
+}
+//カスタマイズ
+.p-contact__data-checkbox {
+  padding-block: rm(11) 0;
+}
+
+.wpcf7-form-control.wpcf7-checkbox,
+.wpcf7-form-control.wpcf7-acceptance {
+  display: flex;
+  flex-direction: column;
+  row-gap: rm(20);
+  
+  @include mq(md) {
+    flex-direction: row;
+    column-gap: rm(20);
+    flex-wrap: wrap;
+  }
+
+  //各項目のcss
+  .wpcf7-list-item {
+    margin: 0;
+  }
+
+  .wpcf7-list-item-label {
+    display: inline-block;
+    padding-inline-start: rm(27);
+    font-size: rm(16);
+    font-weight: 500;
+    line-height: 1.5;
+    position: relative;
+
+    //frame
+    &::before {
+      content: '';
+      position: absolute;
+      width: rm(20);
+      aspect-ratio: 1;
+      border: 1px solid $accent-color;
+      left: 0;
+      top: 50%;
+      translate: 0 -50%;
+      background-color: $color-main;
+    }
+    //active
+    &::after {
+      content: '';
+      position: absolute;
+      border-bottom: 2px solid $green;
+      border-left: 2px solid $green;
+      width: rm(16);
+      height: rm(10);
+      rotate: -45deg;
+      left: rm(2);
+      top: calc(50% - 2px);
+      translate: 0 -50%;
+      opacity: 0;
+    }
+
+    @media(any-hover: hover) {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+// ===================================
+// ラジオボタン
+// ===================================
+//デフォルトのものを消す
+input[type=radio] {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+
+  &:focus {
+    + .wpcf7-list-item-label::before {
+      outline: 2px solid $green;
+    }
+  }
+
+  &.p-contact__input-error + span::before {
+    border-color: #E95858;
+  }
+}
+
+.p-contact__data-radio {
+  padding-block-start: rm(2);
+
+  @include mq(md) {
+    padding-block: rm(6) rm(5);
+  }
+}
+//ラジオボタンカスタマイズ ====================
+//選択された時の挙動
+input[type=radio]:checked + .wpcf7-list-item-label {
+
+  &::after {
+    opacity: 1;
+  }
+}
+//カスタマイズ
+.wpcf7-form-control.wpcf7-radio {
+  padding-inline-start: rm(6);
+
+  @include mq(md) {
+    padding-inline-start: 0;
+  }
+
+  //各項目のcss
+  .wpcf7-list-item-label {
+    display: inline-block;
+    padding-inline-start: rm(30);
+    position: relative;
+    @include font(16, 500, 24, );
+    //frame
+    &::before {
+      content: '';
+      position: absolute;
+      border: 2px solid $accent-color;
+      border-radius: 50%;
+      width: rm(22);
+      aspect-ratio: 1;
+      top: 50%;
+      translate: 0 -50%;
+      left: 0;
+      background-color: $color-main;
+    }
+    //active
+    &::after {
+      content: '';
+      position: absolute;
+      width: rm(14);
+      aspect-ratio: 1;
+      top: 50%;
+      translate: 0 -50%;
+      left: rm(4);
+      border-radius: 50%;
+      background-color: $green;
+      opacity: 0;
+    }
+
+    @media(any-hover: hover) {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  input[type=radio]:not(:checked) + .wpcf7-list-item-label.is-error::before {
+    border-color: #E95858;
+  }
+
+  .wpcf7-list-item {
+    margin: 0;
+  }
+
+  .wpcf7-list-item.first {
+
+  }
+
+  .wpcf7-list-item.last {
+    margin-inline-start: rm(46);
+
+    @include mq(md) {
+      margin-inline-start: rm(82);
+    }
+  }
+}
+
+.p-contact__acceptance {
+  grid-template-columns: 1fr;
+  margin-block-start: rm(16);
+
+  @include mq(md) {
+    margin-block-start: rm(16);
+  }
+  .wpcf7-form-control.wpcf7-acceptance .wpcf7-list-item-label {
+    font-size: rm(16);
+    font-weight: 500;
+    line-height: 1.5;
+    padding-inline-end: rm(4);
+
+    &::after {
+      margin-top: rm(1);
+    }
+  }
+}
+
+.p-contact__acceptance .wpcf7-list-item-label.is-error::after {
+  border-color: #E95858;
+}
+
+.p-contact__notice {
+  color: #6D6D6D;
+  font-size: rm(14);
+  line-height: 1.5;
+  letter-spacing: 0.017em;
+  margin-block-start: rm(19.5);
+
+  @include mq(md) {
+    margin-block-start: rm(22);
+    padding-inline: rm(6);
+  }
+
+  span {
+    font-weight: 500;
+  }
+}
+
+// ===================================
+// 送信ボタン
+// ===================================
+//ブラウザによって異なるデフォルト設定を初期化
+input[type="submit"],
+input[type="button"] {
+  border-radius: 0px;
+  -webkit-box-sizing: content-box;
+  -webkit-appearance: button;
+  appearance: button;
+  border: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  background: transparent;
+}
+input[type="submit"]::-webkit-search-decoration,
+input[type="button"]::-webkit-search-decoration {
+  display: none;
+}
+
+// 送信ボタンのカスタマイズ====================
+.p-contact__submit {
+  text-align: center;
+  margin-block-start: rm(44);
+
+  @include mq(md) {
+    margin-block-start: rm(34);
+  }
+  input[type=submit] {
+    display: inline-block;
+    width: rm(186);
+    font-size: rm(18);
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: 0.017em;
+    background-color: $accent-color;
+    border-radius: rm(10);
+    padding: rm(12) rm(24);
+    color: $color-main;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    @media(any-hover: hover) {
+      &:hover {
+        background-color: $green;
+        color: $accent-color;
+      }
+  }
+  }
+
+  .wpcf7-spinner {
+    display: none;
+  }
+}
+
+.p-contact__privacy {
+  font-family: $ff-sub;
+  font-size: rm(14);
+  line-height: 1.5;
+  letter-spacing: 0.017em;
+  margin-block-start: rm(34);
+  color: #6D6D6D;
+
+  @include mq(md) {
+    width: fit-content;
+    margin-block-start: rm(50);
+    margin-inline: auto;
+  }
+
+  a {
+    color: #E95858;
+    text-decoration: underline;
+  }
+}
+
+.p-contact__error-message {
+  color: #E95858;
+  font-size: rm(16);
+  margin-top: 6px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.grecaptcha-badge { visibility: hidden; }

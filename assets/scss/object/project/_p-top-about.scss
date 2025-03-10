@@ -1,7 +1,7 @@
 @use "../../global" as *;
 
 .p-top-about {
-
+  background-color: $color-main;
 }
 
 .p-top-about__wrapper {
@@ -25,7 +25,8 @@
   @include mq(md) {
     margin-top: 0;
     padding-inline: 0;
-
+    width: rm(409);
+    flex-shrink: 0;
   }
 
   img {
@@ -42,13 +43,15 @@
   display: flex;
   flex-direction: column;
   row-gap: rm(30);
+  padding-inline: rm(25) rm(26);
 
   @include mq(md) {
     row-gap: rm(40);
+    padding-inline: 0;
   }
 }
 
-.p-top-about__name {
+.p-top-about__introduce {
   display: grid;
   row-gap: rm(16);
 
@@ -63,6 +66,7 @@
 
   @include mq(md) {
     row-gap: rm(10);
+    margin-block-start: rm(8);
   }
 }
 
@@ -113,7 +117,7 @@
   row-gap: rm(30);
 
   @include mq(md) {
-    margin-block-start: rm(24);
+    margin-block-start: rm(28);
     flex-direction: row;
     row-gap: 0;
     column-gap: rm(49);
@@ -121,7 +125,7 @@
 }
 
 .p-top-about__item {
-  padding-inline: rm(25.5);
+  padding-inline: rm(20);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -136,6 +140,7 @@
   border-radius: rm(34.281);
   background-color: $color-bg;
   padding: rm(25) rm(66);
+  margin-inline: rm(5.5);
 
   @include mq(md) {
     margin-inline: rm(17);
@@ -165,7 +170,7 @@
   margin-block-start: rm(10);
 
   @include mq(md) {
-    margin-block-start: rm(21);
+    margin-block-start: rm(20);
   }
 }
 
@@ -175,20 +180,21 @@
   padding: rm(26) rm(24);
   display: flex;
   flex-direction: column;
-  row-gap: rm(20);
+  row-gap: rm(28);
   border-radius: rm(20);
 
   @include mq(md) {
     margin-block-start: rm(66);
-    padding: rm(17) rm(61);
+    padding: rm(18) rm(61) rm(17);
     flex-wrap: wrap;
     height: rm(243);
-    column-gap: rm(77);
+    column-gap: rm(98);
+    row-gap: rm(21);
   }
 }
 
 .p-top-about__content {
-
+  
 }
 
 .p-top-about__skill-heading {
@@ -219,5 +225,3 @@
     }
   }
 }
-
-

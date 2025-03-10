@@ -3,23 +3,47 @@
 .c-button {
   font-family: $ff-en;
   border: 1px solid $accent-color;
-  @include font(18, 400, 27, );
   background-color: $color-main;
   padding: rm(12) rm(24);
   border-radius: 100vmax;
   display: grid;
   place-items: center;
-  white-space: nowrap;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  position: relative;
+  overflow: hidden;
 
-  @include mq(md) {
-    font-size: rm(20);
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    background-color: $accent-color;
+    scale: 0 1;
+    transform-origin: left center;
+    transition: scale 0.3s ease;
+  }
+
+  span {
+    @include font(18, 400, 27, );
+    white-space: nowrap;
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+    transition: color 0.3s ease;
+
+    @include mq(md) {
+      font-size: rm(20);
+    }
   }
 
   @media(any-hover: hover) {
     &:hover {
-      background-color: $accent-color;
-      color: $color-main;
+
+      &::after {
+        scale: 1 1;
+      }
+      span {
+        color: $color-main;
+      }
     }
   }
 }

@@ -1,14 +1,15 @@
 @use "../../global" as *;
 
+
 .p-top-service {
   background-color: $color-bg;
 }
 
 .p-top-service__list {
-  margin-block-start: rm(9);
+  margin-block-start: rm(10);
   display: flex;
   flex-direction: column;
-  row-gap: rm(20);
+  row-gap: rm(26);
   align-items: center;
 
   @include mq(md) {
@@ -33,7 +34,7 @@
 }
 
 .p-top-service__img {
-  padding-inline: rm(25.5);
+  padding-inline: rm(24);
 
   @include mq(md) {
     padding: 0;

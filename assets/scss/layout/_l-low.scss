@@ -23,3 +23,19 @@
     padding-block: rm(50);
   }
 }
+
+.l-low__blog {
+  padding-block: rm(42);
+
+  @include mq(md) {
+    padding-block: rm(50);
+  }
+}
+
+.l-low__contact {
+  padding-block: rm(70) rm(111);
+
+  @include mq(md) {
+    padding-block: rm(100) rm(170);
+  }
+}

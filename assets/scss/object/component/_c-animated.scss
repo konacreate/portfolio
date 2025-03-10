@@ -1,0 +1,88 @@
+@use "../../global" as *;
+
+.c-animated__fadeIn {
+  // before (出現前)
+  translate: 0 40px;
+  opacity: 0;
+  transition: translate 0.8s ease, opacity 0.8s ease;
+  
+  // after (出現後)
+  &.js-show {
+    translate: 0;
+    opacity: 1;
+  }
+}
+
+.c-animated__clipView {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.8s ease;
+
+  &.js-show {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+
+.c-animated__blur {
+  opacity: 0;
+  filter: blur(4px);
+  transition: opacity 1.4s ease, filter 1.2s  ease;
+
+  &.js-show {
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+.c-animated__scroll-blur {
+  opacity: 0;
+  filter: blur(4px);
+  transition: opacity 1.2s ease, filter 1s ease;
+
+  &.js-show {
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+.c-animated__text {
+  opacity: 0;
+  .char {
+    opacity: 0;
+  }
+}
+
+.c-animated__fadeInUp {
+  overflow: hidden;
+
+  span {
+    display: inline-block;
+    animation: 0.5s 0.5s ease-in-out forwards slideUp;
+    translate: 0 100%;
+    opacity: 0;
+  }
+
+  @keyframes slideUp {
+    0% {
+      translate: 0 100%;
+      opacity: 0;
+    }
+    100% {
+      translate: 0 0;
+      opacity: 1;
+    }
+  }
+}
+
+.c-animated__slideInRight {
+  opacity: 0;
+  filter: blur(6px);
+  translate: 50px;
+  transition: opacity 1.2s ease, filter 1s ease, translate 1.2s ease;
+
+  &.js-show {
+    filter: blur(0);
+    opacity: 1;
+    translate: 0;
+  }
+}

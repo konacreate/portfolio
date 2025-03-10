@@ -5,20 +5,19 @@
   background-color: $yellow;
 
   @include mq(md) {
-    padding-block: rm(22);
+    padding-block: min(vw(22), 22px);
   }
 }
 
 .p-breadcrumb__inner {
-  margin-inline: rm(7);
+  padding-inline: rm(7);
   display: flex;
   column-gap: rm(17);
   overflow: hidden;
 
-
   @include mq(md) {
-    padding-inline: rm(59);
-    max-width: calc(1440px - 59px * 2);
+    padding-inline: min(vw(59), 59px);
+    max-width: 1440px;
     margin-inline: auto;
   }
   
@@ -27,6 +26,10 @@
     column-gap: rm(17);
     @include font(14, 500, 21, );
       white-space: nowrap;
+
+      @include mq(md) {
+        font-size: rm(16);
+      }
 
     &:not(:first-child) {
       &::before {

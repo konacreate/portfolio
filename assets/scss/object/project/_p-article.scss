@@ -13,7 +13,8 @@
   margin-inline: auto;
 
   @include mq(md) {
-    padding-inline: rm(71);
+    margin-inline: rm(71);
+    width: rm(820);
   }
 
   img {
@@ -30,7 +31,7 @@
 .p-article__list {
   margin-block-start: rm(59);
   display: grid;
-  row-gap: rm(27);
+  row-gap: rm(30);
 
   @include mq(md) {
     margin-block-start: rm(70);
@@ -83,6 +84,16 @@
 
   @include mq(md) {
     font-size: rm(20);
+  }
+
+  &.--link {
+    transition: opacity 0.3s ease;
+    @media(any-hover: hover) {
+      &:hover {
+        opacity: 0.7;
+        cursor: pointer;
+      }
+    }
   }
 }
 

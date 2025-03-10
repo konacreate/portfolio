@@ -7,8 +7,8 @@
 .l-header__inner {
   display: grid;
   align-items: center;
-  grid-template-columns: rm(131) 1fr;
-  padding-inline: rm(19) rm(28);
+  grid-template-columns: rm(134) 1fr;
+  padding-inline: rm(19) rm(27);
   height: 100%;
 
   @include mq(md) {

@@ -1,7 +1,13 @@
 @use "../../global" as *;
 
 .p-fv {
+  position: sticky;
+  top: rm(67);
+  z-index: -1;
 
+  @include mq(md) {
+    top: min(vw(104), 104px);
+  }
 }
 
 .p-fv__inner {
@@ -10,7 +16,8 @@
   width: min(calc(540px + rm(10) + rm(14)), 100%);
 
   @include mq(md) {
-    width: min(calc(1169px + rm(75) + rm(10)), 100%);
+    width: min(calc(1170px + rm(76) + rm(10)), 100%);
+    padding-inline: min(vw(76), 76px) min(vw(10), 10px);
   }
 }
 
@@ -23,17 +30,24 @@
   @include mq(md) {
     flex-direction: row;
     row-gap: 0;
-    justify-content: center;
+    justify-content: space-between;
+    column-gap: rm(40);
   }
 }
 
 .p-fv__text-wrapper {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  width: vw-sp(300);
   row-gap: rm(15);
 
   @include mq(md) {
     row-gap: rm(24);
+    align-items: start;
+    width: fit-content;
+    flex-shrink: 0;
+    margin-block-start: rm(-18);
   }
 }
 
@@ -41,6 +55,7 @@
   font-family: $ff-en;
   @include font(36, 800, 43.2, );
   font-size: clamp(2.25rem, 1rem + 5.33vw, 3rem);
+  text-align: center;
 
   @include mq(md) {
     font-size: rm(48);
@@ -62,7 +77,8 @@
   flex-shrink: 0;
 
   @include mq(md) {
-    width: calc(727 / 1169 * 100%);
+    width: min(calc(727 / 1169 * 100vw), 727px);
+    flex-shrink: 2;
   }
 }
 
@@ -72,11 +88,11 @@
   left: 50%;
   translate: -50% -50%;
   width: calc(261 / 351 * 100%);
-  border-radius: rm(10);
 
   @include mq(md) {
-    width: calc(528 / 727 * 100%);
-    border-radius: rm(20);
+    width: calc(516 / 727 * 100%);
+    top: calc(50% + 12px);
+    left: calc(50% + 20px);
   }
 
   &::before,
@@ -89,8 +105,8 @@
 
   &::before {
     background: url(../img/sp/fv-left.svg) no-repeat center center / contain;
-    top: calc(-5 / 168 * 100%);
-    left: calc(-13 / 261 * 100%);
+    top: calc(2 / 168 * 100%);
+    left: calc(-26 / 261 * 100%);
     height: calc(20 / 168 * 100%);
     rotate: 143deg;
 
@@ -102,14 +118,16 @@
 
   &::after {
     background: url(../img/sp/fv-left.svg) no-repeat center center / cover;
-    bottom: calc(-5 / 168 * 100%);
-    right: calc(-13 / 261 * 100%);
+    bottom: calc(-14 / 168 * 100%);
+    right: calc(-12 / 261 * 100%);
     height: calc(25 / 168 * 100%);
     rotate: -23deg;
 
     @include mq(md) {
       width: calc(92 / 516 * 100%);
       height: calc(50 / 338 * 100%);
+      right: calc(-8 / 261 * 100%);
+      bottom: calc(-8 / 168 * 100%);
     }
   }
 }

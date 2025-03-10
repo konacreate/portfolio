@@ -2,6 +2,12 @@
 
 .p-top-works {
   position: relative;
+  background-color: $color-main;
+  border-radius: rm(160) 0 0 0;
+
+  @include mq(md) {
+    border-radius: rm(400) 0 0 0;
+  }
 }
 
 .p-top-works__deco1,
@@ -83,20 +89,69 @@
     padding: rm(10) rm(10) rm(22);
     row-gap: rm(44);
   }
+
+  @media(any-hover: hover) {
+    &:hover {
+      .p-top-works__img img {
+        scale: 1.1;
+      }
+
+      .p-top-works__img::before {
+        opacity: 1;
+      }
+      .p-top-works__detail {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
 }
 
 .p-top-works__img {
+  position: relative;
+  overflow: hidden;
+  border-radius: rm(20);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.35);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    outline: 2px solid $color-main;
+    outline-offset: rm(-10);
+    border-radius: rm(20);
+  }
 
 
   img {
-    border-radius: rm(20);
     aspect-ratio: 301 / 310;
     object-fit: cover;
+    scale: 1;
+    transition: scale 0.3s ease;
+    border-radius: rm(20);
 
     @include mq(md) {
       aspect-ratio: 357 / 333;
     }
   }
+}
+
+.p-top-works__detail {
+  font-size: rm(24);
+  font-weight: 700;
+  letter-spacing: .03em;
+  color: $color-main;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: 2;
+  transition: opacity 0.3s ease, visibility 0.3 ease;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .p-top-works__body {
@@ -123,7 +178,7 @@
 }
 
 .p-top-works__button {
-  margin-block-start: rm(24.5);
+  margin-block-start: rm(23);
   margin-inline: auto;
   width: rm(218);
 

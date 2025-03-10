@@ -1,0 +1,27 @@
+@use "../../global" as *;
+
+.p-contact-thanks__text {
+  font-size: rm(16);
+  font-weight: 500;
+  line-height: 1.5;
+  margin-block-start: rm(24);
+  letter-spacing: .017em;
+
+  @include mq(md) {
+    margin-block-start: rm(64);
+    font-size: rm(20);
+    width: rm(720);
+    margin-inline: auto;
+  }
+}
+
+.p-contact-thanks__button {
+  margin-block-start: rm(64);
+  width: rm(218);
+  margin-inline: auto;
+
+  @include mq(md) {
+    margin-block-start: rm(72);
+    width: rm(230);
+  }
+}

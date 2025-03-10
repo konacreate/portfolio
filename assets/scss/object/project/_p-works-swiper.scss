@@ -29,6 +29,7 @@
   display: flex;
   justify-content: center;
   column-gap: rm(9);
+  z-index: -1;
 
 
   .swiper-pagination-bullet {

@@ -35,4 +35,16 @@
       content: 'About';
     }
   }
+
+  &.--contact {
+    &::before {
+      content: 'Contact';
+    }
+  }
+
+  &.--blog {
+    &::before {
+      content: 'Blog';
+    }
+  }
 }

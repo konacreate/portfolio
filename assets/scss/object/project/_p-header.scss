@@ -17,11 +17,11 @@
 .p-header {
   position: fixed;
   z-index: $z-header;
-  top: 11px;
+  top: rm(8);
   left: 50%;
   translate: -50%;
   width: calc(100% - 12px * 2);
-  height: rm(45);
+  height: rm(50);
   background: #80BCBD;
   border-radius: 100vmax;
 
@@ -34,12 +34,15 @@
 
 .p-header__logo {
   a {
-    color: $color-main;
     font-size: rm(16);
     font-family: $ff-en;
     font-weight: 800;
     line-height: 1.2;
-    transition: opacity 0.3s ease;
+    color: transparent;
+    background: linear-gradient(45deg, $yellow 50%, $color-main 50%) 100%;
+    background-clip: text;
+    background-size: 208% 100%;
+    transition: background-position 0.3s;
 
     @include mq(md) {
       font-size: rm(24);
@@ -47,7 +50,7 @@
 
     @media(any-hover: hover) {
       &:hover {
-        opacity: 0.5;
+        background-position: 0 100%;
       }
     }
   }
@@ -59,13 +62,14 @@
     display: flex;
     align-items: center;
     justify-content: end;
-    column-gap: rm(60);
+    column-gap: rm(64);
   }
 }
 .p-header__list {
   display: flex;
   align-items: center;
-  column-gap: rm(60);
+  column-gap: rm(62);
+  margin-block-start: rm(8);
   li a {
     font-size: rm(18);
     font-weight: 500;
@@ -79,6 +83,7 @@
     &::before {
       font-size: rm(14);
       font-family: $ff-en;
+      line-height: 1;
     }
 
     &.--works {
@@ -108,19 +113,43 @@
   }
 
 .p-header__button {
-  font-size: rm(16);
-  font-weight: 700;
-  line-height: 1.5;
   width: rm(170);
   padding: rm(8) rm(21);
   border-radius: 100vmax;
   background-color: $yellow;
-  transition: color 0.3s ease, background-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    background-color: $accent-color;
+    inset: 0;
+    z-index: 1;
+    transform-origin: left center;
+    scale: 0 1;
+    transition: scale 0.3s ease;
+  }
+
+  span {
+    font-size: rm(16);
+    font-weight: 700;
+    line-height: 1.5;
+    color: $accent-color;
+    position: relative;
+    z-index: 2;
+    transition: color 0.2s ease;
+  }
 
   @media(any-hover: hover) {
     &:hover {
-      color: $yellow;
-      background-color: $accent-color;
+      &::after {
+        scale: 1;
+      }
+
+      span {
+        color: $yellow;
+      }
     }
   }
 }

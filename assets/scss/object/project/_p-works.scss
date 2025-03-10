@@ -5,7 +5,7 @@
 }
 
 .p-works__category-list {
-  margin-block-start: rm(32);
+  margin-block-start: rm(34);
   display: flex;
   column-gap: rm(8);
   justify-content: center;
@@ -19,10 +19,27 @@
   font-family: $ff-en;
   color: $color-main;
   text-align: center;
+  
   transition: background-color 0.3s ease;
 
   &.is-active {
     background-color: $accent-color;
+  }
+
+  &.all {
+    width: rm(117);
+
+    @include mq(md) {
+      width: rm(107);
+    }
+  }
+
+  &.wordpress {
+    width: rm(111);
+  }
+
+  &.lp {
+    width: rm(56);
   }
 
   @media(any-hover: hover) {
@@ -35,7 +52,7 @@
 .p-works__cards {
   margin-block-start: rm(32);
   display: grid;
-  row-gap: rm(34);
+  row-gap: rm(33);
   justify-items: center;
 
   @include mq(md) {
@@ -61,20 +78,72 @@
   &.--white {
     background-color: $color-main;
   }
+
+  @media(any-hover: hover) {
+    &:hover {
+      .p-works__img img {
+        scale: 1.1;
+      }
+      .p-works__img::before {
+        opacity: 1;
+      }
+      .p-works__detail {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
 }
 
 .p-works__img {
-  width: 100%;
+  position: relative;
+  width: rm(301);
+  overflow: hidden;
+  border-radius: rm(20);
+
+  @include mq(md) {
+    width: rm(317);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.35);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    outline: 2px solid $color-main;
+    outline-offset: rm(-10);
+    border-radius: rm(20);
+  }
 
   img {
     aspect-ratio: 301 / 267;
     border-radius: rm(20);
     object-fit: cover;
+    scale: 1;
+    transition: scale 0.3s ease;
 
     @include mq(md) {
       aspect-ratio: 317 / 267;
     }
   }
+}
+
+.p-works__detail {
+  font-size: rm(24);
+  font-weight: 700;
+  letter-spacing: .03em;
+  color: $color-main;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: 2;
+  transition: opacity 0.3s ease, visibility 0.3 ease;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .p-works__body {

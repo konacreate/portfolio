@@ -10,9 +10,32 @@
 }
 
 .p-fv-swiper__slide {
+  overflow: hidden;
+  border-radius: rm(10);
 
+  @include mq(md) {
+    border-radius: rm(20);
+  }
+
+  @keyframes zoomUp {
+    0% {
+      scale: 1.15;
+    }
+    100% {
+      scale: 1;
+    }
+  }
+  &.swiper-slide-active img,
+  &.swiper-slide-duplicate-active img,
+  &.swiper-slide-prev img {
+    animation: zoomUp 7s linear 0s normal both;
+  }
   img {
+    aspect-ratio: 261 / 168;
 
+    @include mq(md) {
+      aspect-ratio: 516 / 338;
+    }
   }
 }
 
