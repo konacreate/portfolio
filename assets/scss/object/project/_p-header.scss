@@ -117,19 +117,7 @@
   padding: rm(8) rm(21);
   border-radius: 100vmax;
   background-color: $yellow;
-  position: relative;
-  overflow: hidden;
-
-  &::after {
-    content: '';
-    position: absolute;
-    background-color: $accent-color;
-    inset: 0;
-    z-index: 1;
-    transform-origin: left center;
-    scale: 0 1;
-    transition: scale 0.3s ease;
-  }
+  transition: background-color 0.3s ease;
 
   span {
     font-size: rm(16);
@@ -138,14 +126,12 @@
     color: $accent-color;
     position: relative;
     z-index: 2;
-    transition: color 0.2s ease;
+    transition: color 0.3s ease;
   }
 
   @media(any-hover: hover) {
     &:hover {
-      &::after {
-        scale: 1;
-      }
+      background-color: $accent-color;
 
       span {
         color: $yellow;

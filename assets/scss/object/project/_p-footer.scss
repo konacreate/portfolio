@@ -203,7 +203,7 @@
 .p-footer__x {
   width: 100%;
   height: vw-sp(295);
-  overflow: hidden;
+  overflow-y: scroll;
 
   margin-block-start: rm(16);
   border-radius: rm(8);

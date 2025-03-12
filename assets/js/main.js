@@ -1,6 +1,5 @@
-// ハンバーガーメニュー
 document.addEventListener("DOMContentLoaded", () => {
-  //定義
+  // 定義
   const drawerIcon = document.querySelector('.p-drawer__icon');
   const drawerClose = document.querySelector('.p-drawer__close');
   const drawer = document.querySelector('.p-drawer');
@@ -16,56 +15,56 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const focusableElements = [mainContent, footerContent, headerContent, iconX];
 
+  // メニューを開く
+  const openMenu = () => {
+    if (!drawer.classList.contains("js-show")) {
+      drawer.classList.add("js-show");
+      isMenuOpen = true; // メニューが開いたことを示す
 
- // メニューを開く
-const openMenu = () => {
-  if (!drawer.classList.contains("js-show")) {
-    drawer.classList.add("js-show");
+      // 100ms遅延させて `inert` を適用
+      setTimeout(() => {
+        focusableElements.forEach(element => {
+          element.setAttribute('inert', '');
+          element.setAttribute('tabindex', '-1'); // キーボードフォーカスを防ぐ
+        });
+      }, 100);
+    }
+  };
 
-    // 100ms遅延させて `inert` を適用
-    setTimeout(() => {
-      focusableElements.forEach(element => {
-        element.setAttribute('inert', '');
-        element.setAttribute('tabindex', '-1'); // キーボードフォーカスを防ぐ
-      });
-    }, 100); // アニメーション開始直後に適用
-  }
-};
+  // メニューを閉じる
+  const closeMenu = () => {
+    if (drawer.classList.contains("js-show")) {
+      drawer.classList.remove("js-show");
+      isMenuOpen = false; // メニューが閉じたことを示す
 
- // メニューを閉じる
-const closeMenu = () => {
-  if (drawer.classList.contains("js-show")) {
-    drawer.classList.remove("js-show");
+      // 400ms（アニメーション完了後）に `inert` を解除
+      setTimeout(() => {
+        focusableElements.forEach(element => {
+          element.removeAttribute('inert');
+          element.removeAttribute('tabindex');
+        });
+      }, 400);
+    }
+  };
 
-    // 400ms（アニメーション完了後）に `inert` を解除
-    setTimeout(() => {
-      focusableElements.forEach(element => {
-        element.removeAttribute('inert');
-        element.removeAttribute('tabindex');
-      });
-    }, 400); // CSSのアニメーション時間に合わせる
-  }
-};
-
-  //リサイズ処理
-  const handleResize = () => {
-    const bp = breakpoint;
-    const windowWidth = window.innerWidth;
-    if (windowWidth > bp && isMenuOpenAtBreakpoint) {
+  // メニュー外クリックで閉じる処理
+  const clickOuter = (event) => {
+    if (isMenuOpen && !drawer.contains(event.target) && !drawerIcon.contains(event.target)) {
       closeMenu();
-    } else if (windowWidth <= bp && drawer.classList.contains("js-show")) {
+    }
+  };
+
+  // リサイズ処理
+  const handleResize = () => {
+    const windowWidth = window.innerWidth;
+    if (windowWidth > breakpoint && isMenuOpenAtBreakpoint) {
+      closeMenu();
+    } else if (windowWidth <= breakpoint && drawer.classList.contains("js-show")) {
       isMenuOpenAtBreakpoint = true;
     }
   };
 
-  //メニュー外クリック処理
-  const clickOuter = (event) => {
-    if (drawer.classList.contains("js-show") && !drawer.contains(event.target) && isMenuOpen) {
-      closeMenu();
-    }
-  }
-
-  //該当箇所までスクロール
+  // 該当箇所までスクロール
   const linkScroll = (target) => {
     if (target) {
       const targetPosition = target.getBoundingClientRect().top + window.scrollY;
@@ -75,16 +74,16 @@ const closeMenu = () => {
         behavior: "smooth"
       });
     }
-  }
+  };
 
-  //ヘッダーアイコン クリック時
+  // ヘッダーアイコン クリック時
   drawerIcon.addEventListener("click", openMenu);
   drawerClose.addEventListener("click", closeMenu);
-  //画面幅リサイズ時
+  // 画面幅リサイズ時
   window.addEventListener("resize", handleResize);
-  //メニュー外クリック時
+  // メニュー外クリック時
   document.addEventListener("click", clickOuter);
-  //ページ内リンクナビメニュー クリック時
+  // ページ内リンクナビメニュー クリック時
   drawerNavItem.forEach(item => {
     item.addEventListener("click", event => {
       event.preventDefault();
@@ -94,6 +93,7 @@ const closeMenu = () => {
     });
   });
 });
+
 
 // fvSwiper
 const fvSwiper = new Swiper('#js-fv-swiper', {
@@ -388,57 +388,45 @@ window.addEventListener("load", function () {
 	  });
 	});
 
-  const sheep = document.querySelector('.sheep');
+  const sheep1 = document.querySelector('.sheep1');
 
-// タイムラインを作成
-const tl = gsap.timeline({repeat: -1});
+  // タイムラインを作成
+  const tl = gsap.timeline({repeat: -1});
 
-tl.to(sheep, {
-    duration: 14,
-    x: "16vw",
+function animateSheep1() {
+  
+}
+tl.to(sheep1, {
+    duration: 18,
+    x: "18vw",
     y: 30,
     ease: "linear"
 });
-tl.to(sheep, {
-    duration: 3,
-    x: "16vw",
-    y: 30,
-});
 
-tl.to(sheep, {
-    duration: 0.3,
+tl.to(sheep1, {
+    duration: 1,
     rotationY: 180,
 });
 
-tl.to(sheep, {
-    duration: 18,
+tl.to(sheep1, {
+    duration: 22,
     x: "-10vw",
     y: 20,
 });
 
-tl.to(sheep, {
+tl.to(sheep1, {
   duration: 0.3,
   rotationY: 0,
 });
-tl.to(sheep, {
+tl.to(sheep1, {
   duration: 8,
   x: 0,
   y: 0,
 });
 
-
-// 下にゆらゆら揺れる
-gsap.to(sheep, {
-    duration: 1, // 揺れの速さ
-    repeat: -1, // 永久ループ
-    yoyo: true, // 上下に往復
-    ease: "sine.inOut" // 滑らかに揺れる
-});
-
-// 左右に軽く傾く（回転）
-gsap.to(sheep, {
-    duration: 0.5, // 傾きの速さ
-    rotation: "8deg", // 5度傾く
+gsap.to(sheep1, {
+    duration: 0.5,
+    rotation: "8deg",
     repeat: -1, // 永久ループ
     yoyo: true, // 往復する
     ease: "sine.inOut" // 滑らかに揺れる
@@ -448,8 +436,8 @@ gsap.to(sheep, {
   // 永遠に羊が跳ねるアニメーション
   const sheep2 = document.querySelector('.sheep2');
 
-function randomJump() {
-    let jumpHeight = gsap.utils.random(10, 40); // ランダムなジャンプの高さ
+  function randomJump() {
+    let jumpHeight = gsap.utils.random(10, 50);
     let pauseTime = gsap.utils.random(0.5, 2); // ランダムな休憩時間
 
     const tl = gsap.timeline();
@@ -468,6 +456,7 @@ function randomJump() {
         duration: 0.6,
         ease: "power1.out"
     });
+
     tl.to(sheep2, {
         y: 0,
         rotation: "0",
@@ -479,52 +468,52 @@ function randomJump() {
         setTimeout(randomJump, pauseTime * 1000);
     });
 }
-// アニメーション開始
-randomJump();
 
 const sheep3 = document.querySelector('.sheep3');
 
 function forwardWavyJump() {
 
-    // タイムラインを作成（無限ループ）
-    const tl = gsap.timeline({ repeat: -1 });
+  // タイムラインを作成（無限ループ）
+  const tl = gsap.timeline({ repeat: -1 });
 
-    gsap.to(sheep3, {
-        duration: 0.5,
-        rotation: "6deg",
-        yoyo: true,
-        repeat: -1,
-        ease: "sine.inOut"
-    });
-
-    tl.to(sheep3, {
-        x: "-20vw",
-        y: -20,
-        duration: 16,
-        ease: "power1.out"
-    });
-
-    tl.to(sheep3, {
-        rotationY: 180,
-        duration: 0.3,
-    });
-
-    tl.to(sheep3, {
-      x: "-10vw",
-      y: -20,
-      duration: 10,
-      ease: "power1.out"
+  gsap.to(sheep3, {
+      duration: 0.5,
+      rotation: "6deg",
+      yoyo: true,
+      repeat: -1,
+      ease: "sine.inOut"
   });
-    tl.to(sheep3, {
+
+  tl.to(sheep3, {
+      x: "-20vw",
+      y: -20,
+      duration: 18,
+      ease: "linear"
+  });
+
+  tl.to(sheep3, {
+      rotationY: 180,
+      duration: 0.3,
+  });
+
+  tl.to(sheep3, {
+      x: "-15vw",
+      y: 20,
+      duration: 10,
+  });
+
+  tl.to(sheep3, {
       x: 0,
       y: 0,
-      duration: 10,
+      duration: 16,
       ease: "power1.out"
   });
 }
 
-// アニメーション開始
-forwardWavyJump();
+    animateSheep1();
+    randomJump();
+    forwardWavyJump();
+
 });
 
 const isFirstVisit = sessionStorage.getItem('firstVisit');
