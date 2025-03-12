@@ -31,7 +31,7 @@
         </div>
       </div>
     </div>
-    <div class="p-footer__deco1 sheep">
+    <div class="p-footer__deco1 sheep1">
       <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sheep1.png" alt="羊1" width="62" height="44">
     </div>
     <div class="p-footer__deco2 sheep2">

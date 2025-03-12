@@ -659,20 +659,8 @@ select {
   padding: 0.5rem 1.3125rem;
   border-radius: 100vmax;
   background-color: #F9F7C9;
-  position: relative;
-  overflow: hidden;
-}
-.p-header__button::after {
-  content: "";
-  position: absolute;
-  background-color: #456464;
-  inset: 0;
-  z-index: 1;
-  -webkit-transform-origin: left center;
-          transform-origin: left center;
-  scale: 0 1;
-  -webkit-transition: scale 0.3s ease;
-  transition: scale 0.3s ease;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 .p-header__button span {
   font-size: 1rem;
@@ -681,12 +669,12 @@ select {
   color: #456464;
   position: relative;
   z-index: 2;
-  -webkit-transition: color 0.2s ease;
-  transition: color 0.2s ease;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
 }
 @media (any-hover: hover) {
-  .p-header__button:hover::after {
-    scale: 1;
+  .p-header__button:hover {
+    background-color: #456464;
   }
   .p-header__button:hover span {
     color: #F9F7C9;
@@ -1210,7 +1198,7 @@ select {
 .p-footer__x {
   width: 100%;
   height: 78.6666666667vw;
-  overflow: hidden;
+  overflow-y: scroll;
   -webkit-margin-before: 1rem;
           margin-block-start: 1rem;
   border-radius: 0.5rem;
@@ -1662,7 +1650,7 @@ select {
 
 .p-top-works__detail {
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.03em;
   color: #ffffff;
   position: absolute;
@@ -2542,7 +2530,7 @@ select {
 
 .p-works__detail {
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.03em;
   color: #ffffff;
   position: absolute;
