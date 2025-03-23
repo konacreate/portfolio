@@ -17,7 +17,7 @@
       <ul class="p-works__category-list">
         <li class="p-works__category-item">
           <?php
-          $is_active = (is_post_type_archive('works') || is_home()) ? 'is-active' : '';
+          $is_active = is_post_type_archive('works') ? 'is-active' : '';
           $link = esc_url(get_post_type_archive_link('works'));
           if ($is_active) {
             echo '<p class="p-works__category-link all is-active">すべて</p>';

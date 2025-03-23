@@ -177,7 +177,7 @@
             <img class="u-pc" src="<?php echo get_template_directory_uri(); ?>/assets/img/service3.webp" alt="アイコン：スマホとループ" width="334" height="245">
           </div>
           <h3 class="p-top-service__title c-animated__fadeIn --delay0">レスポンシブ対応</h3>
-          <p class="p-top-service__text c-animated__fadeIn --delay1">デザインカンプがPC向けのみで提供された場合でも、各デバイスに対応できるよう実装いたします。<br>完成後にイメージにズレが生じないよう、事前に確認をお願いすることがあります。</p>
+          <p class="p-top-service__text c-animated__fadeIn --delay1">ユーザーがどのデバイスからアクセスしても快適に閲覧・操作できるように実装いたします。</p>
         </li>
       </ul>
     </div>
