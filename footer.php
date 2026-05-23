@@ -20,7 +20,7 @@
         </nav>
         <p class="p-footer__logo">Kona's Portfolio</p>
       </div>
-      <div class="p-footer__right">
+      <!-- <div class="p-footer__right">
         <div class="p-footer__x-wrapper">
           <a href="https://x.com/konadori" target="_blank" rel="nofollow noopener" class="p-footer__button--x"><span>Xからお問い合わせ</span></a>
           <p class="p-footer__message">日々の活動記録も発信しています。<br>お気軽にDMをお送りください。</p>
@@ -30,7 +30,7 @@
           <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="p-footer__deco1 sheep1">
       <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sheep1.png" alt="羊1" width="62" height="44">
     </div>

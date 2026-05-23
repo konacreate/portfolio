@@ -1,13 +1,7 @@
 @use "../../global" as *;
 
 .p-fv {
-  position: sticky;
-  top: rm(67);
-  z-index: -1;
 
-  @include mq(md) {
-    top: min(vw(104), 104px);
-  }
 }
 
 .p-fv__inner {

@@ -565,3 +565,11 @@ document.addEventListener("DOMContentLoaded", function () {
     startMvAnimation();
   }
 });
+
+document.addEventListener('DOMContentLoaded',function(){
+
+  gsap.to('.p-top-service',{scale:1,duration:0.8,ease:'power2.out',scrollTrigger:{
+    trigger:'.p-top-service', //引金
+    start:'top 90%', //[trigger] [browser]アニメーションが発火するスタート位置を定義
+  }});
+})
