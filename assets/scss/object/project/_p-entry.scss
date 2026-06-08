@@ -1,0 +1,244 @@
+@use '../../global' as *;
+
+.p-entry__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: rm(30);
+  grid-template-areas:
+    'content'
+    'widget';
+
+  @include mq(md) {
+    grid-template-columns: minmax(0, 1fr) rm(260);
+    grid-template-areas: 'content widget';
+    gap: rm(40) rm(48);
+    align-items: start;
+  }
+}
+
+.p-entry__body {
+  grid-area: content;
+  min-width: 0;
+  display: grid;
+  row-gap: rm(30);
+
+  @include mq(md) {
+    row-gap: rm(40);
+  }
+}
+
+.p-entry__heading {
+  width: 100%;
+  text-align: center;
+
+  @include mq(md) {
+    text-align: left;
+    align-items: flex-start;
+  }
+}
+
+.p-entry__article {
+  min-width: 0;
+}
+
+.p-entry__meta {
+  margin-block-start: rm(10);
+  display: flex;
+  flex-direction: column;
+  row-gap: rm(8);
+
+  @include mq(md) {
+    margin-block-start: rm(16);
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: rm(16);
+    row-gap: rm(8);
+  }
+}
+
+.p-entry__article-img {
+  width: 100%;
+  margin-block-start: rm(16);
+  aspect-ratio: 351 / 266;
+
+  @include mq(md) {
+    margin-block-start: rm(24);
+    aspect-ratio: 820 / 425;
+  }
+
+  img {
+    object-fit: cover;
+    border-radius: rm(20);
+  }
+}
+
+.p-entry__article-date {
+  display: block;
+  @include font(16, 500, 25.6, 0.272);
+}
+
+.p-entry__categories,
+.p-entry__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: rm(8);
+
+  a {
+    @include font(14, 500, 22.4, 0.24);
+  }
+}
+
+.p-entry__tags a {
+  color: #80bcbd;
+  transition: color 0.3s ease-in-out;
+
+  @media (any-hover: hover) {
+    &:hover {
+      color: $accent-color;
+    }
+  }
+}
+
+.p-entry__categories a {
+  border-radius: rm(4);
+  background-color: $color-main;
+  padding: rm(4) rm(10);
+  border: 1px solid $accent-color;
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: $accent-color;
+      color: $color-main;
+    }
+  }
+}
+
+.p-entry__article-content {
+  @include font(16, 500, 25.6, 0.272);
+  font-feature-settings: 'palt';
+  margin-block-start: rm(16);
+
+  @include mq(md) {
+    margin-block-start: rm(24);
+  }
+
+  > * + * {
+    margin-block-start: 1em;
+  }
+
+  h2,
+  h3,
+  h4 {
+    font-weight: 700;
+    line-height: 1.6;
+  }
+
+  h2 {
+    @include font(20, 500, 32, 0.4);
+    border-block-end: 2px solid $accent-color;
+    background-color: $color-bg;
+    padding-inline: rm(10) 0;
+
+    @include mq(md) {
+      font-size: rm(28);
+    }
+  }
+
+  h3 {
+    position: relative;
+    @include font(18, 500, 28.8, 0.36);
+    background-color: $color-bg;
+    padding-inline: rm(10) 0;
+
+    @include mq(md) {
+      font-size: rm(26);
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: rm(4);
+      height: 100%;
+      background-color: $accent-color;
+    }
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: rm(10);
+  }
+
+  a {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    transition: color 0.3s ease;
+
+    @media(any-hover: hover) {
+      &:hover {
+        color: #80bcbd;
+      }
+    }
+  }
+}
+
+.p-entry__pager {
+  margin-block-start: rm(24);
+}
+
+.p-entry__pager-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: rm(8);
+}
+
+.p-entry__pager-link {
+  display: grid;
+  place-items: center;
+  min-width: rm(40);
+  height: rm(40);
+  padding-inline: rm(8);
+  border-radius: rm(5);
+  border: 1px solid #80bcbd;
+  @include font(16, 500, 24, 0);
+}
+
+.p-entry__article-text {
+  @include font(16, 500, 25.6, 0.272);
+}
+
+.p-entry__share {
+  margin-block-start: rm(40);
+  text-align: center;
+
+  @include mq(md) {
+    margin-block-start: rm(50);
+  }
+}
+
+.p-entry__share-link {
+  display: inline-grid;
+  place-items: center;
+  min-width: rm(120);
+  height: rm(40);
+  padding-inline: rm(20);
+  border-radius: rm(4);
+  border: 1px solid $black;
+  background-color: $black;
+  color: $white;
+  font-family: $ff-en;
+  @include font(16, 500, 24, 0);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: $white;
+      color: $black;
+    }
+  }
+}

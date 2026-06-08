@@ -1,0 +1,108 @@
+@use '../../global' as *;
+
+.p-pagination {
+  margin-block-start: rm(24);
+
+  @include mq(md) {
+    margin-block-start: rm(40);
+  }
+
+  &--between .page-numbers {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  &--prev-only .page-numbers {
+    width: 100%;
+    justify-content: start;
+  }
+
+  &--next-only .page-numbers {
+    width: 100%;
+    justify-content: end;
+  }
+
+  .page-numbers {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    column-gap: rm(8);
+    row-gap: rm(12);
+
+    @include mq(md) {
+      column-gap: rm(12);
+    }
+
+    li {
+      display: grid;
+      place-items: center;
+    }
+
+    a.page-numbers,
+    span.page-numbers.current {
+      font-family: $ff-en;
+      @include font(16, 500, 24, 0);
+      min-width: rm(40);
+      height: rm(40);
+      padding-inline: rm(16);
+      display: grid;
+      place-items: center;
+      border-radius: rm(5);
+      border: 1px solid #80bcbd;
+      background-color: $color-main;
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+
+      @include mq(md) {
+        padding-inline: rm(24);
+      }
+    }
+
+    a.page-numbers {
+      @media (hover: hover) {
+        &:hover {
+          background-color: $accent-color;
+          border-color: $accent-color;
+          color: $color-main;
+        }
+      }
+    }
+
+    span.page-numbers.current {
+      background-color: $accent-color;
+      border-color: $accent-color;
+      color: $color-main;
+    }
+
+    span.dots {
+      min-width: auto;
+      height: auto;
+      padding-inline: rm(4);
+      border: none;
+      background-color: transparent;
+      color: $color-text;
+    }
+
+    .prev,
+    .next {
+      a {
+        min-width: rm(72);
+        padding-inline: rm(16);
+
+        @include mq(md) {
+          min-width: rm(88);
+        }
+      }
+    }
+  }
+}
+
+.p-pagination__prev,
+.p-pagination__next {
+  display: inline-block;
+  border: none;
+  min-width: auto;
+  height: auto;
+  padding: 0;
+  background-color: transparent;
+}

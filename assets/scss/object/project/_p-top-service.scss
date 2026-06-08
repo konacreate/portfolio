@@ -1,54 +1,52 @@
 @use "../../global" as *;
 
-
 .p-top-service {
   background-color: $color-bg;
-  scale: 0;
-  border-radius: 10%;
+  border-radius: rm(16);
 }
 
 .p-top-service__list {
-  margin-block-start: rm(10);
+  margin-block-start: rm(24);
   display: flex;
   flex-direction: column;
-  row-gap: rm(26);
+  gap: rm(26);
   align-items: center;
 
   @include mq(md) {
     margin-block-start: rm(86);
-    flex-direction: row;
-    row-gap: 0;
-    column-gap: rm(49);
-    align-items: start
+    gap: rm(49);
   };
 }
 
 .p-top-service__item {
   padding: rm(10) rm(22);
+  width: 100%;
   display: grid;
-  justify-items: center;
-  row-gap: rm(21);
+  grid-template-columns: 1fr;
+  grid-template-areas: "img"
+                        "title"
+                        "text";
+  gap: rm(16);
 
   @include mq(md) {
     padding: 0;
-    flex: 1;
+    gap: rm(20) rm(24);
+    grid-template-rows: auto 1fr;
+    grid-template-columns: auto 1fr;
+    grid-template-areas: "img title"
+                        "img text";
   }
 }
 
 .p-top-service__img {
   padding-inline: rm(24);
+  grid-area: img;
+  width: 100%;
+  aspect-ratio: 328 / 224;
 
   @include mq(md) {
     padding: 0;
-  }
-
-  img {
-    aspect-ratio: 262 / 180;
-    object-fit: cover;
-
-    @include mq(md) {
-      aspect-ratio: 334 / 245;
-    }
+    width: rm(334);
   }
 }
 
@@ -56,13 +54,17 @@
   font-family: $ff-en;
   text-align: center;
   @include font(20, 500, 26, 0.34);
+  grid-area: title;
 
   @include mq(md) {
+    padding-block-start: rm(24);
     @include font(24, 500, 31.2, 0.408);
+    text-align: left;
   }
 }
 
 .p-top-service__text {
   @include font(16, 500, 25.6, 0.272);
+  grid-area: text;
 }
 

@@ -48,6 +48,7 @@
 .p-fv__title {
   font-family: $ff-en;
   @include font(36, 800, 43.2, );
+  letter-spacing: 0.01em;
   font-size: clamp(2.25rem, 1rem + 5.33vw, 3rem);
   text-align: center;
 
@@ -62,6 +63,13 @@
 
   @include mq(md) {
     font-size: rm(18);
+  }
+
+  .char {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom;
+    will-change: transform, opacity;
   }
 }
 

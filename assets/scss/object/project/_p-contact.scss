@@ -160,9 +160,23 @@
 
 
 .p-contact__head:has(.custom-error) {
-  display: flex;
-  column-gap: rm(72);
-  align-items: center;
+  @include mq(md) {
+    display: flex;
+    column-gap: rm(72);
+    align-items: center;
+  }
+}
+
+.custom-error {
+  color: #e95858;
+  font-size: rm(16);
+  font-weight: 500;
+  line-height: 1.5;
+  width: 100%;
+}
+
+.p-contact__data + .custom-error {
+  margin-block-start: rm(4);
 }
 
 .p-contact__data {
@@ -489,7 +503,6 @@ input[type="button"]::-webkit-search-decoration {
 }
 
 .p-contact__privacy {
-  font-family: $ff-sub;
   font-size: rm(14);
   line-height: 1.5;
   letter-spacing: 0.017em;
@@ -509,11 +522,8 @@ input[type="button"]::-webkit-search-decoration {
 }
 
 .p-contact__error-message {
-  color: #E95858;
-  font-size: rm(16);
-  margin-top: 6px;
-  font-weight: 500;
-  line-height: 1.5;
+  @extend .custom-error;
+  margin-top: rm(6);
 }
 
 .grecaptcha-badge { visibility: hidden; }

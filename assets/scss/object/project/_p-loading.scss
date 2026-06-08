@@ -1,4 +1,4 @@
-@use "../../global" as *;
+@use '../../global' as *;
 
 .p-loading {
   position: fixed;
@@ -12,40 +12,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: translate 1s ease;
   padding-inline: rm(20) rm(82);
-  &.js-loading-end {
-    translate: 0 -100%;
-    pointer-events: none;
-  }
+}
+
+.p-loading__inner {
+  position: relative;
+  display: inline-block;
 }
 
 .p-loading__img {
+  position: absolute;
+  left: rm(-72);
+  top: 50%;
+  translate: 0 -50%;
+  z-index: 1;
   width: rm(62);
-  animation: move 0.3s 0.5s ease-in-out forwards;
+  will-change: transform;
 
   img {
     aspect-ratio: 62 / 44;
-  }
-
-  @keyframes move {
-    0% {
-      translate: 0;
-    }
-    100% {
-      translate: 420%;
-    }
-  }
-
-  @include mq(md) {
-    @keyframes move {
-      0% {
-        translate: 0;
-      }
-      100% {
-        translate: 620%;
-      }
-    }
   }
 }
 
@@ -55,14 +40,14 @@
   font-size: rm(24);
   font-weight: 700;
   line-height: 1.5;
-  overflow: hidden;
+  position: relative;
+  z-index: 2;
 
   @include mq(md) {
     font-size: rm(40);
   }
 
-  span {
+  .split {
     display: inline-block;
-    translate: 0 100%;
   }
 }

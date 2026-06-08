@@ -25,7 +25,7 @@
               if (has_post_thumbnail()) {
                 the_post_thumbnail('my_thumbnail');
               } else {
-                echo '<img src="' .  esc_url(get_template_directory_uri()) . '/assets/img/noimg.png" alt="画像なし">';
+                echo '<img src="' .  esc_url(get_template_directory_uri()) . '/assets/img/noimg.webp" alt="画像なし">';
               }
               ?>
             </figure>
@@ -48,9 +48,11 @@
               <li class="p-article__item"><span class="p-article__label">制作期間</span>
                 <p class="p-article__text"><?php the_field('term'); ?></p>
               </li>
+              <?php if(get_field('price')): ?>
               <li class="p-article__item"><span class="p-article__label">費用目安</span>
                 <p class="p-article__text"><?php the_field('price'); ?></p>
               </li>
+              <?php endif; ?>
               <li class="p-article__item --start"><span class="p-article__label">制作概要</span>
                 <p class="p-article__text"><?php echo nl2br(get_field('overview')); ?></p>
               </li>
@@ -60,7 +62,7 @@
       <?php endif; ?>
     </div>
     <?php
-$term_var = get_the_terms($post->ID, 'genre');
+$term_var = get_the_terms(get_the_ID(), 'genre');
 
 if ($term_var && !is_wp_error($term_var)) {
     $excluded_slugs = array('coding', 'sample');
@@ -75,7 +77,7 @@ if ($term_var && !is_wp_error($term_var)) {
             array(
                 'post_type'      => 'works',
                 'posts_per_page' => 3,
-                'post__not_in'   => array($post->ID),
+                'post__not_in'   => array(get_the_ID()),
                 'tax_query'      => array(
                     array(
                         'taxonomy' => 'genre',

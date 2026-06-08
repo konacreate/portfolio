@@ -5,8 +5,8 @@
     <div class="p-fv__inner">
       <div class="p-fv__wrapper">
         <div class="p-fv__text-wrapper">
-          <p class="p-fv__title c-animated__blur"><span>Kona's Portfolio</span></p>
-          <p class="p-fv__text c-animated__text">丁寧で正確に、伝わるWebを。</p>
+          <p class="p-fv__title"><span>Kana's Portfolio</span></p>
+          <p class="p-fv__text">安心感と伝わるWebを提供します</p>
         </div>
         <picture class="p-fv__img">
           <source media="(min-width: 768px)" srcset="<?php echo get_template_directory_uri(); ?>/assets/img/fv.webp">
@@ -41,7 +41,7 @@
       <img src="<?php echo get_template_directory_uri(); ?>/assets/img/item3.svg" alt="もこもこ" width="40" height="40">
     </div>
     <div class="l-inner">
-      <h2 class="c-heading --works c-animated__fadeIn --delay0">制作実績</h2>
+      <h2 class="c-heading --works">制作実績</h2>
       <?php
       $args = array(
         'post_type' => 'works',
@@ -58,7 +58,7 @@
       if ($query->have_posts()) : ?>
         <ul class="p-top-works__cards u-sp">
           <?php while ($query->have_posts()): $query->the_post(); ?>
-            <li class="c-animated__fadeIn --delay0">
+            <li>
               <a href="<?php the_permalink(); ?>" class="p-top-works__card">
                 <figure class="p-top-works__img">
                   <img src="<?php the_field('img'); ?>" alt="">
@@ -99,7 +99,7 @@
       );
       $query = new WP_Query($args);
       if ($query->have_posts()) : ?>
-        <div class="p-top-works__slider u-pc c-animated__slideInRight">
+        <div class="p-top-works__slider u-pc">
           <!-- Slider main container -->
           <div id="js-works-swiper" class="swiper p-works-swiper">
             <!-- Additional required wrapper -->
@@ -153,31 +153,33 @@
 
   <section class="l-top__service p-top-service">
     <div class="l-inner">
-      <h2 class="c-heading --service c-animated__fadeIn --delay0">できること</h2>
+      <h2 class="c-heading --service">サービス内容</h2>
       <ul class="p-top-service__list">
         <li class="p-top-service__item">
-          <div class="p-top-service__img c-animated__clipView">
-            <img class="u-sp" src="<?php echo get_template_directory_uri(); ?>/assets/img/sp/service1.png" alt="アイコン：パソコン" width="262" height="180">
-            <img class="u-pc" src="<?php echo get_template_directory_uri(); ?>/assets/img/service1.webp" alt="アイコン：パソコン" width="334" height="245">
-          </div>
-          <h3 class="p-top-service__title c-animated__fadeIn --delay0">HP・LPの制作・修正</h3>
-          <p class="p-top-service__text c-animated__fadeIn --delay1">デザインカンプに基づいた忠実な実装と意味付けされたHTMLマークアップを行います。<br>さらに、ページの読み込み速度向上とWebサイトの使いやすさの向上のため、コードの最適化および圧縮を実施します。</p>
+          <picture class="p-top-service__img">
+            <source media="(min-width: 768px)" srcset="<?php echo get_template_directory_uri(); ?>/assets/img/service1.webp">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sp/service1.png" alt="アイコン：パソコン" width="262" height="180" decoding="async">
+          </picture>
+          <h3 class="p-top-service__title">対応範囲</h3>
+          <p class="p-top-service__text">サイトのコンセプトに合わせたアニメーションの実装やご提案をはじめ、各種デバイスに最適化するレスポンシブ対応まで幅広く対応。<br>開発時は適切なGitを行い、安全かつスムーズなコミュニケーションを徹底。<br>また、直感的に運用できるヘッドレスCMS「microCMS」を組み合わせた、コンテンツ管理システムの構築も可能です。</p>
         </li>
         <li class="p-top-service__item">
-          <div class="p-top-service__img c-animated__clipView">
-            <img class="u-sp" src="<?php echo get_template_directory_uri(); ?>/assets/img/sp/service2.png" alt="アイコン：WordPress" width="262" height="180">
-            <img class="u-pc" src="<?php echo get_template_directory_uri(); ?>/assets/img/service2.webp" alt="アイコン：WordPress" width="334" height="245">
-          </div>
-          <h3 class="p-top-service__title c-animated__fadeIn --delay0">WordPress構築</h3>
-          <p class="p-top-service__text c-animated__fadeIn --delay1">HTMLサイトのWordPress化、オリジナルテーマの制作を承っております。<br>お問合せフォームやブログ機能など、標準的な機能の追加やカスタマイズもご相談ください。</p>
+          <picture class="p-top-service__img">
+            <source media="(min-width: 768px)" srcset="<?php echo get_template_directory_uri(); ?>/assets/img/service2.webp">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sp/service2.png" alt="アイコン：WordPress" width="262" height="180">
+          </picture>
+          <h3 class="p-top-service__title">CMS構築</h3>
+          <p class="p-top-service__text">WordPressやmicroCMSを使用したサイトの構築を承っております。<br>単にデザインを形にするだけでなく、納品後の「セキュリティ」や「集客力」、「運用のしやすさ」を追求したカスタマイズを行います。</p>
         </li>
         <li class="p-top-service__item">
-          <div class="p-top-service__img c-animated__clipView">
-            <img class="u-sp" src="<?php echo get_template_directory_uri(); ?>/assets/img/sp/service3.png" alt="アイコン：スマホとループ" width="262" height="180">
-            <img class="u-pc" src="<?php echo get_template_directory_uri(); ?>/assets/img/service3.webp" alt="アイコン：スマホとループ" width="334" height="245">
-          </div>
-          <h3 class="p-top-service__title c-animated__fadeIn --delay0">レスポンシブ対応</h3>
-          <p class="p-top-service__text c-animated__fadeIn --delay1">ユーザーがどのデバイスからアクセスしても快適に閲覧・操作できるように実装いたします。</p>
+          <picture class="p-top-service__img">
+            <source media="(min-width: 768px)" srcset="<?php echo get_template_directory_uri(); ?>/assets/img/service3.webp">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sp/service3.png" alt="アイコン：スマホとループ" width="262" height="180" decoding="async">
+          </picture>
+          <h3 class="p-top-service__title">進行しやすいサポート</h3>
+          <p class="p-top-service__text">
+            WordPressやmicroCMSの管理画面操作マニュアルの作成、進捗報告を当たり前に行っています。<br>ご報告の際はディレクター様のお客様へそのままご共有いただけるよう、内容を整理いたします。<br>修正案件の際は、いただいた指示だけでなく「他にも対応すべき箇所がないか？」を確認し手戻りがないようにしています。
+          </p>
         </li>
       </ul>
     </div>
@@ -186,67 +188,37 @@
 
   <section id="about" class="l-top__about p-top-about">
     <div class="l-inner">
-      <h2 class="c-heading --about u-sp c-animated__scroll-blur --delay0">私について</h2>
+      <h2 class="c-heading --about u-sp">私について</h2>
       <div class="p-top-about__wrapper">
         <div class="p-top-about__img">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/img/about-img.webp" alt="こうなのアイコン" width="400" height="400">
+          <img src="<?php echo get_template_directory_uri(); ?>/assets/img/about-img.webp" alt="プロフィール画像" width="400" height="400">
         </div>
         <div class="p-top-about__text-wrapper">
-          <h2 class="c-heading --about u-pc c-animated__scroll-blur --delay0">私について</h2>
-          <div class="p-top-about__introduce c-animated__scroll-blur --delay1">
-            <h3 class="p-top-about__heading">こうな/Webコーダー</h3>
-            <p class="p-top-about__text">1992年生まれ、群馬県出身、新潟県在住。<br>2024年11月開業。現在、フリーランスWebコーダーとして活動しています。</p>
-          </div>
-          <div class="p-top-about__carrier c-animated__scroll-blur --delay2">
-            <h4 class="p-top-about__heading">経歴</h4>
-            <p class="p-top-about__text">前職では経理を中心に、医療機関や製造業の事務職として約10年間従事しました。結婚による環境の変化をきっかけに以前から興味があったWeb業界に転身。<br>専門職と関わる機会が多い中で、「相手に負担をかけさせずにスムーズに進めるにはどうすればよいか」を考え、行動することを大切にしてきました。<br>この姿勢はコーディング実務にも活かされ、クライアント様から「コミュニケーションがスムーズで安心して進行できる」と評価をいただいています。<br>今後もユーザー目線のコーディングと円滑なプロジェクト進行に貢献してまいります。<br><br>資格：コーディング実務検定 合格</p>
+          <h2 class="c-heading --about u-pc">私について</h2>
+          <div class="p-top-about__introduce">
+            <h3 class="p-top-about__heading">しらいし かな/Webコーダー</h3>
+            <p class="p-top-about__text">1992年生まれ、2024年11月に開業。<br>現在、新潟県を中心に個人事業でホームページ制作や公開後の保守・運用を承っています。<br>WordPressはもちろん、AstroやmicroCMSを使用したサイトも対応しています。<br>お客様の課題や運用の形に合わせて、最適なご提案をいたします。</p>
           </div>
         </div>
       </div>
-      <div class="p-top-about__policy">
-        <h3 class="p-top-about__policy-title c-animated__fadeIn --delay0"><span>3</span>つの基本的な方針</h3>
-        <ul class="p-top-about__list">
-          <li class="p-top-about__item">
-            <div class="p-top-about__policy-img c-animated__clipView">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/img/policy1.webp" alt="アイコン：ハートを抱える手" width="169" height="137">
-            </div>
-            <h4 class="p-top-about__policy-heading c-animated__scroll-blur --delay0">ユーザー目線のコーディング</h4>
-            <p class="p-top-about__policy-text c-animated__scroll-blur --delay1">ユーザー目線を最優先し、キーボード操作やアクセシビリティ、アニメーションを最適化します。</p>
-          </li>
-          <li class="p-top-about__item">
-            <div class="p-top-about__policy-img c-animated__clipView">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/img/policy2.webp" alt="アイコン：メール" width="169" height="137">
-            </div>
-            <h4 class="p-top-about__policy-heading c-animated__scroll-blur --delay0">誠実なコミュニケーション</h4>
-            <p class="p-top-about__policy-text c-animated__scroll-blur --delay1">確認事項はまとめて行い、定期的に進捗をご報告することでお客様の時間と信頼を大切にします。</p>
-          </li>
-          <li class="p-top-about__item">
-            <div class="p-top-about__policy-img c-animated__clipView">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/img/policy3.webp" alt="アイコン：分析" width="169" height="137">
-            </div>
-            <h4 class="p-top-about__policy-heading c-animated__scroll-blur --delay0">徹底した品質管理</h4>
-            <p class="p-top-about__policy-text c-animated__scroll-blur --delay1">品質チェックシートを最大限に活用するため、複数回チェックすることで精度を高めています。</p>
-          </li>
-        </ul>
-      </div>
-      <div class="p-top-about__skill c-animated__fadeIn --delay1">
+      <div class="p-top-about__skill">
         <div class="p-top-about__content">
-          <p class="p-top-about__skill-heading">【使用言語】</p>
-          <p class="p-top-about__skill-text">HTML/CSS(SCSS)/<br class="u-sp">JavaScript(jQuery・GSAP)/PHP</p>
+          <h4 class="p-top-about__skill-heading">使用言語</h4>
+          <p class="p-top-about__skill-text">Astro/PHP/HTML5/CSS3(SCSS)/JavaScript(jQuery・GSAP)</p>
         </div>
         <div class="p-top-about__content">
-          <p class="p-top-about__skill-heading">【CSS設計手法】</p>
-          <p class="p-top-about__skill-text">FLOCSS(BEMも可)</p>
+          <h4 class="p-top-about__skill-heading">CMS</h4>
+          <p class="p-top-about__skill-text">WordPress/microCMS</p>
         </div>
         <div class="p-top-about__content">
-          <p class="p-top-about__skill-heading">【使用ツール(デザインは書き出し専用)】</p>
-          <p class="p-top-about__skill-text">Figma/XD/ Illustrator/Photoshop/<br class="u-sp">Git(GitHub)/Gulp
+          <h4 class="p-top-about__skill-heading">デザイン連携・ツール</h4>
+          <p class="p-top-about__skill-text">Figma/XD/ Illustrator/Photoshop/Git/GitHub
           </p>
         </div>
         <div class="p-top-about__content">
-          <p class="p-top-about__skill-heading">【稼働時間】</p>
-          <p class="p-top-about__skill-text --time">平日：9時〜21時</p>
-          <p class="p-top-about__skill-text --time">土日祝でも柔軟に対応いたしますので、お気軽にご相談ください。</p>
+          <h4 class="p-top-about__skill-heading">稼働時間</h4>
+          <p class="p-top-about__skill-text">平日：9時〜20時</p>
+          <p class="p-top-about__skill-text">土日祝でも柔軟に対応いたしますので、お気軽にご相談ください。</p>
         </div>
       </div>
     </div>

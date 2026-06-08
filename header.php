@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/apple-touch-icon.png">
 
   <?php wp_head(); ?>
 </head>
@@ -12,8 +11,10 @@
 <body>
   <!-- ローディングアニメーション -->
   <div class="p-loading" id="loading">
-    <div class="p-loading__img"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sheep1.png" alt=""></div>
-    <p class="p-loading__text c-animated__fadeInUp"><span>Kona's Portfolio</span></p>
+    <div class="p-loading__inner">
+      <div class="p-loading__img"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sheep1.png" alt=""></div>
+      <p class="p-loading__text"><span class="split">Kana's Portfolio</span></p>
+    </div>
   </div>
   <!-- /p-loading -->
 
@@ -26,9 +27,9 @@
     <header class="l-header p-header">
       <div class="l-header__inner">
         <?php if (is_front_page()): ?>
-          <h1 href="" class="p-header__logo"><a href="<?php echo home_url('/'); ?>"><?php bloginfo('name'); ?></a></h1>
+          <h1 href="<?php echo esc_url(home_url('/')); ?>" class="p-header__logo"><a href="<?php echo home_url('/'); ?>">Kana's Portfolio</a></h1>
         <?php else : ?>
-          <div href="" class="p-header__logo"><a href="<?php echo home_url('/'); ?>"><?php bloginfo('name'); ?></a></div>
+          <div href="" class="p-header__logo"><a href="<?php echo esc_url(home_url('/')); ?>">Kana's Portfolio</a></div>
         <?php endif; ?>
         <nav class="p-header__nav">
           <ul class="p-header__list">
