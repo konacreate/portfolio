@@ -1,57 +1,58 @@
 name: Deploy to Production
+
 on:
   push:
-    branches: [ master ]
+    branches:
+      - master
   workflow_dispatch:
 
+jobs:
   deploy:
-    needs: test
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Set up SSH
-      uses: webfactory/ssh-agent@v0.9.0
-      with:
-        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY_PRODUCTION }}
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY_PRODUCTION }}
 
-    - name: Ensure target theme directory exists on remote
-      run: |
-        SSH_HOST="${{ secrets.PRODUCTION_SERVER_HOST }}"
-        SSH_USER="${{ secrets.PRODUCTION_SERVER_USER }}"
-        SSH_PORT="${{ secrets.PRODUCTION_SERVER_PORT }}"
-        THEME_PATH="${{ secrets.PRODUCTION_THEME_PATH }}"
-        ssh -o StrictHostKeyChecking=no -p "${SSH_PORT}" "${SSH_USER}"@"${SSH_HOST}" "mkdir -p \"${THEME_PATH}\""
+      - name: Ensure target theme directory exists on remote
+        run: |
+          SSH_HOST="${{ secrets.PRODUCTION_SERVER_HOST }}"
+          SSH_USER="${{ secrets.PRODUCTION_SERVER_USER }}"
+          SSH_PORT="${{ secrets.PRODUCTION_SERVER_PORT }}"
+          THEME_PATH="${{ secrets.PRODUCTION_THEME_PATH }}"
+          ssh -o StrictHostKeyChecking=no -p "${SSH_PORT}" "${SSH_USER}"@"${SSH_HOST}" "mkdir -p \"${THEME_PATH}\""
 
-    - name: Rsync theme files to PRODUCTION
-      run: |
-        SSH_HOST="${{ secrets.PRODUCTION_SERVER_HOST }}"
-        SSH_USER="${{ secrets.PRODUCTION_SERVER_USER }}"
-        SSH_PORT="${{ secrets.PRODUCTION_SERVER_PORT }}"
-        THEME_PATH="${{ secrets.PRODUCTION_THEME_PATH }}"
-        rsync -avzc --delete --exclude='.*' --exclude README.md \
-          -e "ssh -o StrictHostKeyChecking=no -p ${SSH_PORT}" \
-          ./ "${SSH_USER}"@"${SSH_HOST}":"${THEME_PATH}"
+      - name: Rsync theme files to PRODUCTION
+        run: |
+          SSH_HOST="${{ secrets.PRODUCTION_SERVER_HOST }}"
+          SSH_USER="${{ secrets.PRODUCTION_SERVER_USER }}"
+          SSH_PORT="${{ secrets.PRODUCTION_SERVER_PORT }}"
+          THEME_PATH="${{ secrets.PRODUCTION_THEME_PATH }}"
+          rsync -avzc --delete --exclude='.*' --exclude README.md \
+            -e "ssh -o StrictHostKeyChecking=no -p ${SSH_PORT}" \
+            ./ "${SSH_USER}"@"${SSH_HOST}":"${THEME_PATH}"
 
-    - name: Clear WordPress Cache
-      run: |
-        SSH_HOST="${{ secrets.PRODUCTION_SERVER_HOST }}"
-        SSH_USER="${{ secrets.PRODUCTION_SERVER_USER }}"
-        SSH_PORT="${{ secrets.PRODUCTION_SERVER_PORT }}"
-        ssh -o StrictHostKeyChecking=no -p "${SSH_PORT}" "${SSH_USER}"@"${SSH_HOST}" "wp w3-total-cache flush all"
+      - name: Clear WordPress Cache
+        run: |
+          SSH_HOST="${{ secrets.PRODUCTION_SERVER_HOST }}"
+          SSH_USER="${{ secrets.PRODUCTION_SERVER_USER }}"
+          SSH_PORT="${{ secrets.PRODUCTION_SERVER_PORT }}"
+          ssh -o StrictHostKeyChecking=no -p "${SSH_PORT}" "${SSH_USER}"@"${SSH_HOST}" "wp cache flush"
 
   release:
     needs: deploy
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Release Drafter
-      uses: release-drafter/release-drafter@v6
-      with:
-        publish: true
-        version: ${{ steps.version.outputs.version-without-v }}
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Release Drafter
+        uses: release-drafter/release-drafter@v6
+        with:
+          publish: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
