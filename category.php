@@ -13,8 +13,11 @@
 <main class="l-main">
   <div class="l-low__blog p-blog">
     <div class="l-inner p-blog__inner">
-      <h1 class="c-heading --blog p-blog__heading"><?php echo get_the_title(get_option('page_for_posts')); ?></h1>
+      <h1 class="c-heading p-blog__heading"><?php single_cat_title(); ?></h1>
       <div class="p-blog__articles">
+        <?php if (category_description()) : ?>
+          <div class="p-blog__description"><?php echo category_description(); ?></div>
+        <?php endif; ?>
         <?php if (have_posts()) : ?>
           <?php while (have_posts()) : the_post(); ?>
             <a href="<?php the_permalink(); ?>" class="p-blog__article-link">
@@ -37,19 +40,21 @@
             </a>
           <?php endwhile; ?>
         <?php else : ?>
-          <p class="p-blog__article-text">記事がありません</p>
+          <p class="p-blog__article-text">このカテゴリの記事はありません</p>
         <?php endif; ?>
 
-        <?php if(paginate_links()): ?>
+        <?php if (paginate_links()) : ?>
           <div class="p-pagination">
-            <?php echo paginate_links(array(
+            <?php
+            echo paginate_links(array(
               'end_size' => 1,
               'mid_size' => 1,
               'prev_next' => true,
               'prev_text' => '<span class="p-pagination__prev">前へ</span>',
               'next_text' => '<span class="p-pagination__next">次へ</span>',
               'type' => 'list',
-            )); ?>
+            ));
+            ?>
           </div>
         <?php endif; ?>
       </div>

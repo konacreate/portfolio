@@ -47,4 +47,10 @@
       content: 'Blog';
     }
   }
+
+  &.--archive {
+    &::before {
+      content: 'Archive';
+    }
+  }
 }

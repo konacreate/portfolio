@@ -1,0 +1,81 @@
+@use '../../global' as *;
+
+.p-widget {
+  grid-area: widget;
+  display: grid;
+  row-gap: rm(30);
+
+  @include mq(md) {
+    row-gap: rm(40);
+  }
+}
+
+.p-widget__category,
+.p-widget__tag,
+.p-widget__archive {
+  display: grid;
+  row-gap: rm(16);
+}
+
+.p-widget__title {
+  font-family: $ff-en;
+  @include font(18, 500, 27, 0.9);
+  padding-block-end: rm(10);
+  border-bottom: 1px solid #80bcbd;
+
+  @include mq(md) {
+    @include font(20, 500, 30, 1);
+  }
+}
+
+.p-widget__list {
+  display: grid;
+  row-gap: rm(12);
+
+  @include mq(md) {
+    row-gap: rm(14);
+  }
+}
+
+.p-widget__link {
+  display: block;
+  @include font(16, 500, 25.6, 0.272);
+  font-feature-settings: "palt";
+  transition: opacity 0.3s ease, color 0.3s ease;
+
+  &.is-current {
+    color: $accent-color;
+    font-weight: 700;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+.p-widget__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: rm(4) rm(10);
+}
+
+.p-widget__tag-link {
+  @include font(14, 500, 22.4, 0.24);
+  font-family: $ff-en;
+  color: #80bcbd;
+  transition: color 0.3s ease, opacity 0.3s ease;
+
+  &.is-current {
+    color: $accent-color;
+    font-weight: 700;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      color: $accent-color;
+      opacity: 0.8;
+    }
+  }
+}

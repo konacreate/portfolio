@@ -3,11 +3,6 @@
 .p-top-works {
   position: relative;
   background-color: $color-main;
-  border-radius: rm(160) 0 0 0;
-
-  @include mq(md) {
-    border-radius: rm(400) 0 0 0;
-  }
 }
 
 .p-top-works__deco1,

@@ -19,7 +19,7 @@ get_header(); ?>
   <section class="p-contact l-low__contact">
     <div class="l-inner p-contact__inner">
       <h1 class="c-heading --contact">お問い合わせ</h1>
-      <p class="p-contact__text">ご相談・お見積もりは無料で承ります。どんな些細なことでもお気軽にお問い合わせください。<br>ご入力いただいたメールアドレスに、24時間以内に返信いたします。</p>
+      <p class="p-contact__text">ご相談・お見積もりは無料で承ります。どんな些細なことでもお気軽にお問い合わせください。<br>ご入力いただいたメールアドレスに、2営業日以内に返信いたします。</p>
       <?php echo do_shortcode('[contact-form-7 id="ec737ee" title="お問い合わせフォーム" html_id="contact-form" html_class="p-contact__form"]'); ?>
     </div>
   </section>
