@@ -6,7 +6,7 @@
       <div class="p-fv__wrapper">
         <div class="p-fv__text-wrapper">
           <p class="p-fv__title"><span>Kana's Portfolio</span></p>
-          <p class="p-fv__text">安心感と伝わるWebを提供します</p>
+          <p class="p-fv__text">丁寧に正確に、伝わるWebを</p>
         </div>
         <picture class="p-fv__img">
           <source media="(min-width: 768px)" srcset="<?php echo get_template_directory_uri(); ?>/assets/img/fv.webp">
