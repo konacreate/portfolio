@@ -49,5 +49,7 @@ jobs:
           SSH_HOST: ${{ secrets.REMOTE_HOST }}
           SSH_USER: ${{ secrets.REMOTE_USER }}
           SSH_PORT: ${{ secrets.PRODUCTION_SERVER_PORT }}
+          THEME_PATH: ${{ secrets.REMOTE_TARGET_PROD }}
         run: |
-          ssh -i ~/.ssh/xserver_deploy -o StrictHostKeyChecking=no -p "$SSH_PORT" "$SSH_USER"@"$SSH_HOST" "wp cache flush"
+          WP_PATH=$(echo "$THEME_PATH" | sed 's|/wp-content/themes/.*||')
+          ssh -i ~/.ssh/xserver_deploy -o StrictHostKeyChecking=no -p "$SSH_PORT" "$SSH_USER"@"$SSH_HOST" "wp cache flush --path=\"$WP_PATH\""
