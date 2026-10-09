@@ -160,16 +160,16 @@
             <source media="(min-width: 768px)" srcset="<?php echo get_template_directory_uri(); ?>/assets/img/service1.webp">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sp/service1.png" alt="アイコン：パソコン" width="262" height="180" decoding="async">
           </picture>
-          <h3 class="p-top-service__title">対応範囲</h3>
-          <p class="p-top-service__text">サイトのコンセプトに合わせたアニメーションの実装やご提案をはじめ、各種デバイスに最適化するレスポンシブ対応まで幅広く対応。<br>開発時は適切なGitを行い、安全かつスムーズなコミュニケーションを徹底。<br>また、直感的に運用できるヘッドレスCMS「microCMS」を組み合わせた、コンテンツ管理システムの構築も可能です。</p>
+          <h3 class="p-top-service__title">デザインにない部分も、考えて実装します</h3>
+          <p class="p-top-service__text">ご指示いただいた内容を実装するだけでなく、SPデザインがない場合のレイアウトや、投稿数が増減した場合の表示など、完成後の使われ方まで考えて対応します。<br>判断できる部分はこちらからご提案し、意図に関わる部分は確認しながら進めることで、細かな仕様をすべて決めていただく負担を減らします。</p>
         </li>
         <li class="p-top-service__item">
           <picture class="p-top-service__img">
             <source media="(min-width: 768px)" srcset="<?php echo get_template_directory_uri(); ?>/assets/img/service2.webp">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sp/service2.png" alt="アイコン：WordPress" width="262" height="180">
           </picture>
-          <h3 class="p-top-service__title">CMS構築</h3>
-          <p class="p-top-service__text">WordPressやmicroCMSを使用したサイトの構築を承っております。<br>単にデザインを形にするだけでなく、納品後の「セキュリティ」や「集客力」、「運用のしやすさ」を追求したカスタマイズを行います。</p>
+          <h3 class="p-top-service__title">公開後も使いやすいサイトをつくります</h3>
+          <p class="p-top-service__text">WordPressのカスタムフィールドや管理画面の設計など、公開後に更新する方が迷わず使えることまで考えて構築します。<br>ご要望によってはWordPressに限らず、microCMSなど運用方法に合った仕組みをご提案。作って終わりではなく、その後も扱いやすいサイトを目指します。</p>
         </li>
         <li class="p-top-service__item">
           <picture class="p-top-service__img">
@@ -178,7 +178,8 @@
           </picture>
           <h3 class="p-top-service__title">進行しやすいサポート</h3>
           <p class="p-top-service__text">
-            WordPressやmicroCMSの管理画面操作マニュアルの作成、進捗報告を当たり前に行っています。<br>ご報告の際はディレクター様のお客様へそのままご共有いただけるよう、内容を整理いたします。<br>修正案件の際は、いただいた指示だけでなく「他にも対応すべき箇所がないか？」を確認し手戻りがないようにしています。
+            WordPressやmicroCMSの管理画面操作マニュアルの作成、進捗報告を当たり前に行っています。<br>
+            修正案件の際は、いただいた指示だけでなく「他にも対応すべき箇所がないか？」を確認し手戻りがないようにしています。
           </p>
         </li>
       </ul>
@@ -196,8 +197,8 @@
         <div class="p-top-about__text-wrapper">
           <h2 class="c-heading --about u-pc">私について</h2>
           <div class="p-top-about__introduce">
-            <h3 class="p-top-about__heading">しらいし かな/Webコーダー</h3>
-            <p class="p-top-about__text">1992年生まれ、2024年11月に開業。<br>現在、新潟県を中心に個人事業でホームページ制作や公開後の保守・運用を承っています。<br>WordPressはもちろん、AstroやmicroCMSを使用したサイトも対応しています。<br>お客様の課題や運用の形に合わせて、最適なご提案をいたします。</p>
+            <h3 class="p-top-about__heading">しらいし かな<br class="u-sp">/Webコーダー(デザイン)</h3>
+            <p class="p-top-about__text">1992年生まれ、2024年11月に開業。<br>前職は医療機関の経理で、数値の取りまとめや分析を、他部署と連携しながら進めていました。正確さが求められる現場で身につけた丁寧な確認と調整力を、制作でも活かしています。<br>現在、新潟県在住。個人事業でホームページ制作や公開後の保守・運用を承っています。<br>WordPressはもちろん、AstroやmicroCMSを使用したサイトも対応しています。<br>お客様の事業を伺ったうえで、最適なご提案をいたします。</p>
           </div>
         </div>
       </div>

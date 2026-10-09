@@ -72,7 +72,7 @@
 
 .p-top-about__heading {
   font-family: $ff-en;
-  @include font(18, 800, 21.6, 0.9);
+  @include font(18, 800, 23.4, 0.9);
 
   @include mq(md) {
     @include font(24, 500, 28.8, 1.2);
@@ -82,7 +82,6 @@
 .p-top-about__text {
   @include font(16, 500, 25.6, 0.272);
   font-feature-settings: "palt";
-  text-align: justify;
 }
 
 .p-top-about__skill {

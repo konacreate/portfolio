@@ -1,0 +1,13 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portfolio の WordPress テーマ開発",
+  "scripts": {
+    "sass": "sass assets/scss/style.scss assets/css/style.css",
+    "sass:watch": "sass --watch assets/scss/style.scss:assets/css/style.css"
+  },
+  "devDependencies": {
+    "sass": "^1.99.0"
+  }
+}
