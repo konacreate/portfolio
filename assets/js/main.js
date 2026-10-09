@@ -594,7 +594,7 @@ const initLoading = () => {
     loadingTL.addLabel('start', 0.5);
 
     chars.forEach((char, index) => {
-      const position = index === 0 ? 'start' : '-=0.36';
+      const position = index === 0 ? 'start' : '-=0.38';
 
       loadingTL
         .to(

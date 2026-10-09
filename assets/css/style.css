@@ -3607,11 +3607,6 @@ input[type=button]::-webkit-search-decoration {
   display: inline-block;
   translate: 2.25rem;
 }
-@media (min-width: 768px) {
-  .p-loading__inner {
-    translate: 0;
-  }
-}
 
 .p-loading__img {
   position: absolute;
