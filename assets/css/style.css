@@ -3599,12 +3599,23 @@ input[type=button]::-webkit-search-decoration {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-inline: 1.25rem 5.125rem;
+  padding-inline: 1.25rem;
+}
+@media (min-width: 768px) {
+  .p-loading {
+    padding-inline: 1.25rem 5.125rem;
+  }
 }
 
 .p-loading__inner {
   position: relative;
   display: inline-block;
+  translate: 2.25rem;
+}
+@media (min-width: 768px) {
+  .p-loading__inner {
+    translate: 0;
+  }
 }
 
 .p-loading__img {

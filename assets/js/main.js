@@ -600,8 +600,8 @@ const initLoading = () => {
         .to(
           char,
           {
-            y: -20,
-            duration: 0.16,
+            y: -32,
+            duration: 0.32,
             ease: 'power2.inOut',
           },
           position,
@@ -613,7 +613,7 @@ const initLoading = () => {
             duration: 0.16,
             ease: 'power2.inOut',
           },
-          '-=0.04',
+          '-=0.05',
         );
     });
 

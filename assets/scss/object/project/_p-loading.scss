@@ -12,12 +12,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-inline: rm(20) rm(82);
+  padding-inline: rm(20);
+
+  @include mq(md) {
+    padding-inline: rm(20) rm(82);
+  }
 }
 
 .p-loading__inner {
   position: relative;
   display: inline-block;
+  // 羊が左に72pxはみ出すので、その半分だけ右へずらして見た目の中心を揃える
+  translate: rm(36);
+
+  @include mq(md) {
+    translate: 0;
+  }
 }
 
 .p-loading__img {
