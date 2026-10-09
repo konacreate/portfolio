@@ -197,8 +197,8 @@
         <div class="p-top-about__text-wrapper">
           <h2 class="c-heading --about u-pc">私について</h2>
           <div class="p-top-about__introduce">
-            <h3 class="p-top-about__heading">しらいし かな<br class="u-sp">/Webコーダー(デザイン)</h3>
-            <p class="p-top-about__text">新潟県在住、1992年生まれ。2024年11月に開業し、個人事業でホームページ制作や公開後の保守・運用を承っています。<br>前職は医療機関の経理として6年半勤務。正確さが求められる現場で身につけた丁寧な確認と調整力を、制作でも活かしています。<br>WordPressはもちろん、AstroやmicroCMSを使用したサイトも対応しています。<br>お客様の事業を伺ったうえで、最適なご提案をいたします。</p>
+            <h3 class="p-top-about__heading">白石 香奈<br class="u-sp">/Webコーダー(デザイン)</h3>
+            <p class="p-top-about__text">新潟県在住、1992年生まれ。<br>2024年11月に開業し、個人事業でホームページ制作や公開後の保守・運用を承っています。<br>前職は医療機関の経理として6年半勤務。正確さが求められる現場で身につけた丁寧な確認と調整力を、制作でも活かしています。<br>WordPressはもちろん、AstroやmicroCMSを使用したサイトも対応しています。<br>お客様の事業を伺ったうえで、最適なご提案をいたします。</p>
           </div>
         </div>
       </div>

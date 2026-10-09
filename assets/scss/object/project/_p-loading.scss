@@ -13,10 +13,6 @@
   align-items: center;
   justify-content: center;
   padding-inline: rm(20);
-
-  @include mq(md) {
-    padding-inline: rm(20) rm(82);
-  }
 }
 
 .p-loading__inner {

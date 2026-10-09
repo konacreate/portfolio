@@ -3601,11 +3601,6 @@ input[type=button]::-webkit-search-decoration {
   justify-content: center;
   padding-inline: 1.25rem;
 }
-@media (min-width: 768px) {
-  .p-loading {
-    padding-inline: 1.25rem 5.125rem;
-  }
-}
 
 .p-loading__inner {
   position: relative;
